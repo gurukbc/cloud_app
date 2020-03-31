@@ -16,7 +16,6 @@
         app:layout_constraintBottom_toTopOf="@+id/bar_bottom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout3"
             android:layout_width="match_parent"

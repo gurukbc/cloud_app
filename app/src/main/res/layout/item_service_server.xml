@@ -19,7 +19,6 @@
         android:background="@color/colorAccent"
         android:gravity="center_vertical"
         android:orientation="vertical">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/lay_service_server2"
             android:layout_width="0dp"

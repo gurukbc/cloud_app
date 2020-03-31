@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
     <ScrollView
         android:id="@+id/lay_scroll_moni_metric"
         android:layout_width="match_parent"

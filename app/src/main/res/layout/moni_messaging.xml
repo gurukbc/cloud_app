@@ -169,7 +169,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/img_monitoirng"
         app:srcCompat="@drawable/payment" />
-
     <ImageView
         android:id="@+id/img_service"
         android:layout_width="47dp"

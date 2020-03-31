@@ -320,7 +320,6 @@ public class Monitoring_alarm extends AppCompatActivity {private MoniAlarmAdapte
         });
     }
 
-
     private void getData(String[] name, String[] state, String[] condi, String[] onoff, String[] act, String[] type) {
         // 임의의 데이터입니다.
         List<String> listName = Arrays.asList(name);
