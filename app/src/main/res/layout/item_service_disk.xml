@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/service_disk_lay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_service_disk"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lay_service_disk2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_service_disk"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/disk" />
+
+            <TextView
+                android:id="@+id/txt_disk_service_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:text="디스크 이름 받아오기 (클릭시 하단 관리창)"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="@+id/img_service_disk"
+                app:layout_constraintStart_toEndOf="@+id/img_service_disk"
+                app:layout_constraintTop_toTopOf="@+id/img_service_disk" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/view6"
+        style="@style/Divider"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimaryDark" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_service_disk_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <ImageView
+            android:id="@+id/img_service_disk_item_back"
+            android:layout_width="396dp"
+            android:layout_height="160dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@color/회색" />
+
+        <TextView
+            android:id="@+id/txt_disk_state_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="12dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="상태 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/img_service_disk_item_back"
+            app:layout_constraintTop_toTopOf="@+id/img_service_disk_item_back" />
+
+        <TextView
+            android:id="@+id/txt_disk_size_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="용량 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_disk_state_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_disk_state_back" />
+
+        <TextView
+            android:id="@+id/txt_disk_date_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="생성일 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_disk_size_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_disk_size_back" />
+
+        <TextView
+            android:id="@+id/txt_disk_server_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="적용서버 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_disk_date_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_disk_date_back" />
+
+        <TextView
+            android:id="@+id/txt_disk_zone_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="위치(Zone) : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_disk_server_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_disk_server_back" />
+
+        <TextView
+            android:id="@+id/txt_service_disk_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="디스크 현재 상태 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_disk_state_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_disk_state_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_disk_state_back" />
+
+        <TextView
+            android:id="@+id/txt_service_disk_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(EX) 20GB"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_disk_size_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_disk_size_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_disk_state_back" />
+
+        <TextView
+            android:id="@+id/txt_service_disk_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YYYY-MM-DD 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_disk_date_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_disk_date_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_disk_date_back" />
+
+        <TextView
+            android:id="@+id/txt_service_disk_server"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="적용서버명 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_disk_server_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_disk_server_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_disk_server_back" />
+
+        <TextView
+            android:id="@+id/txt_service_disk_zone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zone 위치 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_disk_zone_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_disk_zone_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_disk_zone_back" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

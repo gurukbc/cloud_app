@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/service_auto_lay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_service_auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lay_service_auto2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_service_auto"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/autoscaling" />
+
+            <TextView
+                android:id="@+id/txt_auto_service_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:text="오토스케일링 이름 받아오기 (클릭시 하단 관리창)"
+                android:textSize="17sp"
+                app:layout_constraintStart_toEndOf="@+id/img_service_auto"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_service_auto_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:id="@+id/view2"
+            style="@style/Divider"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="@+id/imageView23"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_auto_maxVM_back" />
+
+        <ImageView
+            android:id="@+id/img_service_auto_item_back"
+            android:layout_width="396dp"
+            android:layout_height="220dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@color/회색" />
+
+
+        <TextView
+            android:id="@+id/txt_auto_state_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="12dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="상태 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/img_service_auto_item_back"
+            app:layout_constraintTop_toTopOf="@+id/img_service_auto_item_back" />
+
+        <TextView
+            android:id="@+id/txt_auto_zone_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="위치(Zone) : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_auto_state_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_auto_state_back" />
+
+
+        <TextView
+            android:id="@+id/txt_auto_curVM_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="현재 VM수 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_auto_zone_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_auto_zone_back" />
+
+        <TextView
+            android:id="@+id/txt_auto_tarVM_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="목표 VM수 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_auto_curVM_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_auto_curVM_back" />
+
+        <TextView
+            android:id="@+id/txt_auto_minVM_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="최소 VM수 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_auto_tarVM_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_auto_tarVM_back" />
+
+        <TextView
+        android:id="@+id/txt_auto_maxVM_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@null"
+        android:ems="5"
+        android:inputType="textPersonName"
+        android:text="최대 VM수 : "
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/txt_auto_minVM_back"
+        app:layout_constraintTop_toBottomOf="@+id/txt_auto_minVM_back" />
+
+        <TextView
+            android:id="@+id/txt_auto_tarVM_change_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@null"
+            android:ems="7"
+            android:inputType="textPersonName"
+            android:text="목표 VM수 변경 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_auto_maxVM_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_auto_maxVM_back" />
+
+        <TextView
+            android:id="@+id/txt_service_auto_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="오토 스케일링 현재 상태 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_auto_state_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_auto_state_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_auto_state_back" />
+
+        <TextView
+            android:id="@+id/txt_service_auto_curVM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="현재VM 개수 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_auto_curVM_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_auto_curVM_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_auto_curVM_back" />
+
+        <TextView
+            android:id="@+id/txt_service_auto_tarVM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="목표VM 개수 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_auto_tarVM_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_auto_tarVM_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_auto_tarVM_back" />
+
+        <TextView
+            android:id="@+id/txt_service_auto_minVM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="최소VM 개수 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_auto_minVM_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_auto_minVM_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_auto_minVM_back" />
+
+        <TextView
+            android:id="@+id/txt_service_auto_maxVM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="최대VM 개수 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_auto_maxVM_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_auto_maxVM_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_auto_maxVM_back" />
+
+
+        <TextView
+            android:id="@+id/txt_service_auto_zone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zone 위치 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_auto_zone_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_auto_zone_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_auto_zone_back" />
+
+        <EditText
+            android:id="@+id/txt_auto_tarVM_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:gravity="center"
+            android:inputType="number"
+            android:hint="개수 입력"
+            android:textColor="@color/검회색글자"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_auto_tarVM_change_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_auto_tarVM_change_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_auto_tarVM_change_back" />
+
+        <Button
+            android:id="@+id/btn_auto_tarVM_change"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/check"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_auto_tarVM_change"
+            app:layout_constraintStart_toEndOf="@+id/txt_auto_tarVM_change"
+            app:layout_constraintTop_toTopOf="@+id/txt_auto_tarVM_change" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

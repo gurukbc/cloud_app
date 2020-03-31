@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_metric_period"
+    android:layout_height="24dp"
+    android:layout_width="60dp"
+    android:background="@color/회색">
+    <item
+        android:id="@+id/all"
+        android:title="전체"/>
+    <item
+        android:id="@+id/occ"
+        android:title="발생" />
+    <item
+        android:id="@+id/nor"
+        android:title="안정"/>
+    <item
+        android:id="@+id/data"
+        android:title="데이터 부족"/>
+
+</menu>

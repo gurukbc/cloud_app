@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_metric_status"
+    android:layout_height="36dp"
+    android:layout_width="60dp"
+    android:background="@color/회색">
+    <item
+        android:id="@+id/sum"
+        android:title="합" />
+    <item
+        android:id="@+id/max"
+        android:title="최대"/>
+    <item
+        android:id="@+id/min"
+        android:title="최소"/>
+    <item
+        android:id="@+id/sample"
+        android:title="샘플수"/>
+    <item
+        android:id="@+id/avg"
+        android:title="평균"/>
+</menu>

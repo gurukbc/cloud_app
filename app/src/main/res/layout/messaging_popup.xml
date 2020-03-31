@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay_msg_popup"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="@color/검회색글자"
+        android:gravity="center|left"
+        android:text="      messaging 발행"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_msg_popup_content"
+        android:layout_width="match_parent"
+        android:layout_height="239dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16">
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="24dp"
+            android:text="토픽"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="제목"
+            app:layout_constraintStart_toStartOf="@+id/textView17"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="내용"
+            app:layout_constraintStart_toStartOf="@+id/textView18"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+        <EditText
+            android:id="@+id/txt_msg_send_topic"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/txtbox"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView17"
+            app:layout_constraintStart_toEndOf="@+id/textView17"
+            app:layout_constraintTop_toTopOf="@+id/textView17" />
+
+        <EditText
+            android:id="@+id/txt_msg_send_title"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/txtbox"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView18"
+            app:layout_constraintStart_toEndOf="@+id/textView18"
+            app:layout_constraintTop_toTopOf="@+id/textView18" />
+
+        <EditText
+            android:id="@+id/txt_msg_send_content"
+            android:layout_width="240dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="35dp"
+            android:background="@drawable/txtbox"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView19"
+            app:layout_constraintTop_toTopOf="@+id/textView19"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* 100byte까지 작성 가능합니다."
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="@+id/txt_msg_send_title"
+            app:layout_constraintTop_toBottomOf="@+id/txt_msg_send_title" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* 4KB까지 작성 가능합니다."
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="@+id/txt_msg_send_content"
+            app:layout_constraintTop_toBottomOf="@+id/txt_msg_send_content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_msg_popup_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lay_msg_popup_content">
+
+        <Button
+            android:id="@+id/btn_msg_send_cancle"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:background="@color/진한회색"
+            android:text="취소"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_msg_send_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/빨간글자"
+            android:text="확인"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_msg_send_cancle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

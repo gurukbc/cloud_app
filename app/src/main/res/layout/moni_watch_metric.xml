@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay_scroll_moni_alarm_back"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/lay_scroll_moni_metric"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toTopOf="@+id/bar_bottom"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/회색">
+
+
+            <ImageView
+                android:id="@+id/image44"
+                android:layout_width="412dp"
+                android:layout_height="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/btn_moni_main_metric"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:ems="10"
+                android:focusableInTouchMode="false"
+                android:inputType="textPersonName"
+                android:text="메트릭 옵션"
+                android:textColor="@color/검정"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/image44"
+                app:layout_constraintStart_toStartOf="@+id/image44"
+                app:layout_constraintTop_toTopOf="@+id/image44" />
+
+            <TextView
+                android:id="@+id/editText"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="6dp"
+                android:background="@null"
+                android:ems="10"
+                android:focusableInTouchMode="false"
+                android:inputType="textPersonName"
+                android:text="메트릭 그래프"
+                android:textColor="@color/검정"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+            <ImageView
+                android:id="@+id/imageView43"
+                android:layout_width="48dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                app:layout_constraintStart_toStartOf="@+id/image44"
+                app:layout_constraintTop_toTopOf="@+id/image44"
+                app:srcCompat="@color/상단민트" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="48dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView_topic_list"
+                app:srcCompat="@color/바주황" />
+
+            <RadioGroup
+                android:id="@+id/rg_metric_opt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image44">
+
+                <RadioButton
+                    android:id="@+id/rbtn_metric_allServer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="모든 서버 메트릭" />
+
+                <RadioButton
+                    android:id="@+id/rbtn_metric_perServer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:text="개별 서버 메트릭" />
+            </RadioGroup>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_topic_list"
+                android:layout_width="0dp"
+                android:layout_height="240dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rg_metric_opt" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearLayout7"
+                android:layout_width="0dp"
+                android:layout_height="360dp"
+                android:background="@color/colorAccent"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText">
+
+                <TextView
+                    android:id="@+id/txt_moni_metric_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@null"
+                    android:text="통계 : "
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txt_moni_metric_period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:background="@null"
+                    android:text="주기 : "
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_moni_metric_status"
+                    app:layout_constraintStart_toEndOf="@+id/btn_moni_metric_status"
+                    app:layout_constraintTop_toTopOf="@+id/txt_moni_metric_status" />
+
+                <TextView
+                    android:id="@+id/txt_moni_metric_cycle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:background="@null"
+                    android:text="구간설정 : "
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_moni_metric_status"
+                    app:layout_constraintStart_toEndOf="@+id/btn_moni_metric_period"
+                    app:layout_constraintTop_toTopOf="@+id/txt_moni_metric_status"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <Button
+                    android:id="@+id/btn_moni_metric_status"
+                    android:layout_width="56dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:background="@color/회색"
+                    android:text="합"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_moni_metric_status"
+                    app:layout_constraintStart_toEndOf="@+id/txt_moni_metric_status"
+                    app:layout_constraintTop_toTopOf="@+id/txt_moni_metric_status" />
+
+                <Button
+                    android:id="@+id/btn_moni_metric_period"
+                    android:layout_width="56dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:background="@color/회색"
+                    android:text="5분"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_moni_metric_period"
+                    app:layout_constraintStart_toEndOf="@+id/txt_moni_metric_period"
+                    app:layout_constraintTop_toTopOf="@+id/txt_moni_metric_period" />
+
+                <Button
+                    android:id="@+id/btn__moni_metric_cycle"
+                    android:layout_width="56dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:background="@color/회색"
+                    android:text="1시간"
+                    app:layout_constraintBottom_toBottomOf="@+id/txt_moni_metric_cycle"
+                    app:layout_constraintStart_toEndOf="@+id/txt_moni_metric_cycle"
+                    app:layout_constraintTop_toTopOf="@+id/txt_moni_metric_cycle" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/lay_metric_graph"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_moni_metric_period">
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/bar_bottom"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@color/상단민트" />
+
+    <TextView
+        android:id="@+id/txt_monitoring"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginBottom="3dp"
+        android:text="MONITORING"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_service" />
+
+    <ImageView
+        android:id="@+id/img_dashboard"
+        android:layout_width="47dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginBottom="18dp"
+        android:onClick="DashboardClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ktlogo_cloud2" />
+
+    <ImageView
+        android:id="@+id/img_monitoirng"
+        android:layout_width="47dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginBottom="18dp"
+        android:onClick="MonitoringClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_service"
+        app:srcCompat="@drawable/ktlogo_monitoring3" />
+
+    <TextView
+        android:id="@+id/txt_dashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="3dp"
+        android:text="DASHBOARD"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginLeft="41dp"
+        android:layout_marginBottom="3dp"
+        android:text="SERVICE"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_dashboard" />
+
+    <TextView
+        android:id="@+id/txt_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="34dp"
+        android:layout_marginRight="34dp"
+        android:layout_marginBottom="3dp"
+        android:text="SETTING"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_payment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="PaymentClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_monitoirng"
+        app:srcCompat="@drawable/payment" />
+
+    <ImageView
+        android:id="@+id/img_service"
+        android:layout_width="47dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="ServiceClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_dashboard"
+        app:srcCompat="@drawable/service_2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

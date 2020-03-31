@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/moni_topic_lay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_moni_topic"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lay_moni_topic2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_moni_topic"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/alarm" />
+
+            <TextView
+                android:id="@+id/txt_topic_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:text="토픽 URN (클릭시 하단 관리창)"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/img_moni_topic"
+                app:layout_constraintStart_toEndOf="@+id/img_moni_topic"
+                app:layout_constraintTop_toTopOf="@+id/img_moni_topic" />
+
+            <View
+                android:id="@+id/view7"
+                style="@style/Divider"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintEnd_toEndOf="@+id/imageView23"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_moni_topic" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_moni_topic_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <ImageView
+            android:id="@+id/img_moni_topic_item_back"
+            android:layout_width="390dp"
+            android:layout_height="137dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@color/회색" />
+
+        <TextView
+            android:id="@+id/txt_topic_pub_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="12dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="구독 URN : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/img_moni_topic_item_back"
+            app:layout_constraintTop_toTopOf="@+id/img_moni_topic_item_back" />
+
+        <TextView
+            android:id="@+id/txt_topic_protocol_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="프로토콜 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_topic_pub_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_topic_pub_back" />
+
+        <TextView
+            android:id="@+id/txt_topic_receiver_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="수신처 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/txt_topic_receiver"
+            app:layout_constraintStart_toStartOf="@+id/txt_topic_protocol_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_topic_protocol_back" />
+
+        <TextView
+            android:id="@+id/txt_topic_pub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="구독 URN 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_topic_pub_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_topic_pub_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_topic_pub_back" />
+
+        <TextView
+            android:id="@+id/txt_topic_protocol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="프로토콜 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_topic_protocol_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_topic_protocol_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_topic_protocol_back" />
+
+        <TextView
+            android:id="@+id/txt_topic_receiver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수신처 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_topic_receiver_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_topic_receiver_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_topic_receiver_back" />
+
+        <Button
+            android:id="@+id/btn_topic_msg_send_img"
+            android:layout_width="28dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/msg"
+            app:layout_constraintStart_toStartOf="@+id/txt_topic_receiver_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_topic_receiver_back" />
+
+        <Button
+            android:id="@+id/btn_topic_msg_send"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:background="@color/colorAccent"
+            android:stateListAnimator="@null"
+            android:text="메시지 발행"
+            android:textColor="@color/검회색글자"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_topic_msg_send_img"
+            app:layout_constraintStart_toEndOf="@+id/btn_topic_msg_send_img"
+            app:layout_constraintTop_toTopOf="@+id/btn_topic_msg_send_img" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_metric_period"
+    android:layout_height="24dp"
+    android:layout_width="60dp"
+    android:background="@color/회색">
+    <item
+        android:id="@+id/m5"
+        android:title="5분" />
+    <item
+        android:id="@+id/m15"
+        android:title="15분"/>
+    <item
+        android:id="@+id/m30"
+        android:title="30분"/>
+    <item
+        android:id="@+id/h1"
+        android:title="1시간"/>
+    <item
+        android:id="@+id/h6"
+        android:title="6시간"/>
+    <item
+        android:id="@+id/h12"
+        android:title="12시간"/>
+    <item
+        android:id="@+id/d1"
+        android:title="1일"/>
+</menu>

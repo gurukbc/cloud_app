@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/service_nas_lay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_service_nas"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lay_service_nas2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_service_nas"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/nas" />
+
+            <TextView
+                android:id="@+id/txt_nas_service_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:text="NAS 볼륨명 받아오기 (클릭시 하단 관리창)"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="@+id/img_service_nas"
+                app:layout_constraintStart_toEndOf="@+id/img_service_nas"
+                app:layout_constraintTop_toTopOf="@+id/img_service_nas" />
+
+            <View
+                android:id="@+id/view6"
+                style="@style/Divider"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintEnd_toEndOf="@+id/imageView23"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_service_nas" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_service_nas_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:id="@+id/view2"
+            style="@style/Divider"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="@+id/imageView23"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nas_protocol_back" />
+
+        <ImageView
+            android:id="@+id/img_service_nas_item_back"
+            android:layout_width="396dp"
+            android:layout_height="180dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@color/회색" />
+
+
+        <TextView
+            android:id="@+id/txt_nas_zone_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="12dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="위치(Zone) : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/img_service_nas_item_back"
+            app:layout_constraintTop_toTopOf="@+id/img_service_nas_item_back" />
+
+        <TextView
+            android:id="@+id/txt_nas_tarSize_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="6"
+            android:inputType="textPersonName"
+            android:text="신청용량(GB) : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_nas_zone_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nas_zone_back" />
+
+        <TextView
+            android:id="@+id/txt_nas_curSize_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="7"
+            android:inputType="textPersonName"
+            android:text="현재 사용량(GB) : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_nas_tarSize_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nas_tarSize_back" />
+
+        <TextView
+            android:id="@+id/txt_nas_protocol_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="6"
+            android:inputType="textPersonName"
+            android:text="프로토콜 종류 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_nas_curSize_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nas_curSize_back" />
+
+        <TextView
+            android:id="@+id/txt_nas_tarSize_change_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@null"
+            android:ems="8"
+            android:inputType="textPersonName"
+            android:text="신청용량(GB) 변경 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_nas_protocol_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nas_protocol_back" />
+
+        <TextView
+            android:id="@+id/txt_service_nas_tarSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="신청한 NA 용량 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_nas_tarSize_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_nas_tarSize_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_nas_tarSize_back" />
+
+        <TextView
+            android:id="@+id/txt_service_nas_curSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="현재 사용한 NAS 용량 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_nas_curSize_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_nas_curSize_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_nas_curSize_back" />
+
+
+        <TextView
+            android:id="@+id/txt_service_nas_protocol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="프로토콜 종류 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_nas_protocol_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_nas_protocol_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_nas_protocol_back" />
+
+
+        <TextView
+            android:id="@+id/txt_service_nas_zone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zone 위치 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_nas_zone_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_nas_zone_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_nas_zone_back" />
+
+        <EditText
+            android:id="@+id/txt_nas_tarSize_change"
+            android:layout_width="175dp"
+            android:layout_height="38dp"
+            android:ems="7"
+            android:gravity="center"
+            android:hint="사이즈(단위 : GB) 입력"
+            android:inputType="number"
+            android:textColor="@color/검회색글자"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_nas_tarSize_change_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_nas_tarSize_change_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_nas_tarSize_change_back" />
+
+        <Button
+            android:id="@+id/btn_nas_tarSize_change"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/check"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_nas_tarSize_change"
+            app:layout_constraintStart_toEndOf="@+id/txt_nas_tarSize_change"
+            app:layout_constraintTop_toTopOf="@+id/txt_nas_tarSize_change" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="8dp"
+            android:text="* 일반존 : 최대 10000GB, Seoul - M2존 1132GB 최대"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

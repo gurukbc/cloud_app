@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/server_lay"
+    android:layout_width="412dp"
+    android:layout_height="48dp"
+    android:layout_marginBottom="8dp"
+    android:background="@color/회색"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="412dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/회색"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_monitoring_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:includeFontPadding="false"
+            android:text="모니터링 서비스 상황(?) 받아오기"
+            android:textColor="@android:color/black"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/img_monitoring"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_monitoring_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:includeFontPadding="false"
+            android:text="알람 요약"
+            android:textColor="@color/진한회색"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="@+id/txt_monitoring_title"
+            app:layout_constraintTop_toBottomOf="@+id/txt_monitoring_title" />
+
+        <ImageView
+            android:id="@+id/img_monitoring"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/monitoring" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

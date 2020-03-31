@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout6"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/회색">
+
+    <Button
+        android:id="@+id/btn_server_back"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorAccent"
+        android:onClick="ServerClicked"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_LB_back"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorAccent"
+        android:onClick="LBClicked"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_disk_back" />
+
+    <Button
+        android:id="@+id/btn_disk_back"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorAccent"
+        android:onClick="DiskClicked"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_server_back" />
+
+    <Button
+        android:id="@+id/btn_AS_back"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorAccent"
+        android:onClick="AutoScalingClicked"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_LB_back" />
+
+    <Button
+        android:id="@+id/btn_DB_back"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorAccent"
+        android:onClick="DBClicked"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_AS_back" />
+
+    <Button
+        android:id="@+id/btn_NAS_back"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorAccent"
+        android:onClick="NASClicked"
+        android:stateListAnimator="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_DB_back" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="412dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@color/상단민트" />
+
+    <Button
+        android:id="@+id/btn_server"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/server"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_server_back"
+        app:layout_constraintStart_toStartOf="@+id/btn_server_back"
+        app:layout_constraintTop_toTopOf="@+id/btn_server_back" />
+
+    <Button
+        android:id="@+id/btn_disk"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/disk"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_disk_back"
+        app:layout_constraintStart_toStartOf="@+id/btn_disk_back"
+        app:layout_constraintTop_toTopOf="@+id/btn_disk_back" />
+
+    <Button
+        android:id="@+id/btn_LB"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/lb"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_LB_back"
+        app:layout_constraintStart_toStartOf="@+id/btn_LB_back"
+        app:layout_constraintTop_toTopOf="@+id/btn_LB_back" />
+
+    <Button
+        android:id="@+id/btn_auto"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/autoscaling"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_AS_back"
+        app:layout_constraintStart_toStartOf="@+id/btn_AS_back"
+        app:layout_constraintTop_toTopOf="@+id/btn_AS_back" />
+
+    <Button
+        android:id="@+id/btn_DB"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/db"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_DB_back"
+        app:layout_constraintStart_toStartOf="@+id/btn_DB_back"
+        app:layout_constraintTop_toTopOf="@+id/btn_DB_back" />
+
+    <Button
+        android:id="@+id/btn_NAS"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="14dp"
+        android:background="@drawable/nas"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_NAS_back"
+        app:layout_constraintStart_toStartOf="@+id/btn_NAS_back"
+        app:layout_constraintTop_toTopOf="@+id/btn_NAS_back" />
+
+    <TextView
+        android:id="@+id/txt_server_main_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:background="@null"
+        android:ems="3"
+        android:inputType="textPersonName"
+        android:text="[서버]"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/btn_server"
+        app:layout_constraintTop_toTopOf="@+id/btn_server" />
+
+    <TextView
+        android:id="@+id/txt_disk_main_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:background="@null"
+        android:ems="3"
+        android:inputType="textPersonName"
+        android:text="[디스크]"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/btn_disk"
+        app:layout_constraintTop_toTopOf="@+id/btn_disk" />
+
+    <TextView
+        android:id="@+id/txt_LB_main_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:background="@null"
+        android:ems="5"
+        android:inputType="textPersonName"
+        android:text="[로드밸런스]"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/btn_LB"
+        app:layout_constraintTop_toTopOf="@+id/btn_LB" />
+
+    <TextView
+        android:id="@+id/txt_AS_main_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:background="@null"
+        android:ems="6"
+        android:inputType="textPersonName"
+        android:text="[오토스케일링]"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/btn_auto"
+        app:layout_constraintTop_toTopOf="@+id/btn_auto" />
+
+    <TextView
+        android:id="@+id/txt_NAS_main_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:background="@null"
+        android:ems="3"
+        android:inputType="textPersonName"
+        android:text="[NAS]"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/btn_NAS"
+        app:layout_constraintTop_toTopOf="@+id/btn_NAS" />
+
+    <TextView
+        android:id="@+id/txt_DB_main_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:background="@null"
+        android:ems="6"
+        android:inputType="textPersonName"
+        android:text="[데이터베이스]"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/btn_DB"
+        app:layout_constraintTop_toTopOf="@+id/btn_DB" />
+
+    <TextView
+        android:id="@+id/txt_server_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:text="조회, 시작, 정지, 재시작 기능을 수행합니다"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/btn_server"
+        app:layout_constraintTop_toBottomOf="@+id/txt_server_main_title" />
+
+    <TextView
+        android:id="@+id/txt_DB_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:text="조회, 이중화 기능을 수행합니다"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/btn_DB"
+        app:layout_constraintTop_toBottomOf="@+id/txt_DB_main_title" />
+
+    <TextView
+        android:id="@+id/txt_AS_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:text="조회, VM수 조정 기능을 수행합니다"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/btn_auto"
+        app:layout_constraintTop_toBottomOf="@+id/txt_AS_main_title" />
+
+    <TextView
+        android:id="@+id/txt_LB_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:text="조회 기능을 수행합니다"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/btn_LB"
+        app:layout_constraintTop_toBottomOf="@+id/txt_LB_main_title" />
+
+    <TextView
+        android:id="@+id/txt_disk_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:text="조회 기능을 수행합니다"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/btn_disk"
+        app:layout_constraintTop_toBottomOf="@+id/txt_disk_main_title" />
+
+    <TextView
+        android:id="@+id/txt_NAS_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="6dp"
+        android:text="조회, 사이즈 변경 기능을 수행합니다"
+        app:layout_constraintStart_toEndOf="@+id/btn_NAS"
+        app:layout_constraintTop_toBottomOf="@+id/txt_NAS_main_title" />
+
+    <TextView
+        android:id="@+id/txt_monitoring"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginBottom="3dp"
+        android:text="MONITORING"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_service" />
+
+    <ImageView
+        android:id="@+id/img_dashboard"
+        android:layout_width="47dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="18dp"
+        android:onClick="DashboardClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ktlogo_cloud2" />
+
+    <ImageView
+        android:id="@+id/img_monitoirng"
+        android:layout_width="47dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="18dp"
+        android:onClick="MonitoringClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_service"
+        app:srcCompat="@drawable/ktlogo_monitoring3" />
+
+    <TextView
+        android:id="@+id/txt_dashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="3dp"
+        android:text="DASHBOARD"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginBottom="3dp"
+        android:text="SERVICE"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_dashboard" />
+
+    <TextView
+        android:id="@+id/txt_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="3dp"
+        android:text="SETTING"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_payment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_monitoirng"
+        app:srcCompat="@drawable/payment" />
+
+    <ImageView
+        android:id="@+id/img_service"
+        android:layout_width="47dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="ServiceClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_dashboard"
+        app:srcCompat="@drawable/service_2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

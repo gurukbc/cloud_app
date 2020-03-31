@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/service_server_lay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_service_server"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lay_service_server2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_service_server"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/server" />
+
+            <TextView
+                android:id="@+id/txt_server_service_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:text="서버 이름 받아오기 (클릭시 하단 관리창)"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="@+id/img_service_server"
+                app:layout_constraintStart_toEndOf="@+id/img_service_server"
+                app:layout_constraintTop_toTopOf="@+id/img_service_server" />
+
+            <View
+                android:id="@+id/view6"
+                style="@style/Divider"
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/colorPrimaryDark"
+                app:layout_constraintEnd_toEndOf="@+id/imageView23"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_service_server" />
+
+            <Button
+                android:id="@+id/btn_service_server_refresh"
+                android:layout_width="24dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/recycle"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_server_service_name"
+                app:layout_constraintStart_toEndOf="@+id/txt_server_service_name"
+                app:layout_constraintTop_toTopOf="@+id/txt_server_service_name" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_service_server_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:id="@+id/view2"
+            style="@style/Divider"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="@+id/imageView23"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_server_zone_back" />
+
+        <ImageView
+            android:id="@+id/img_service_server_item_back"
+            android:layout_width="396dp"
+            android:layout_height="220dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@color/회색" />
+
+        <Button
+            android:id="@+id/btn_service_server_stop"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/stop"
+            app:layout_constraintStart_toStartOf="@+id/txt_server_os_back"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+        <Button
+            android:id="@+id/btn_service_server_start"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/start"
+            app:layout_constraintStart_toStartOf="@+id/btn_service_server_stop"
+            app:layout_constraintTop_toBottomOf="@+id/btn_service_server_stop" />
+
+        <Button
+            android:id="@+id/btn_service_server_reStart"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/restart"
+            app:layout_constraintStart_toStartOf="@+id/btn_service_server_start"
+            app:layout_constraintTop_toBottomOf="@+id/btn_service_server_start" />
+
+        <TextView
+            android:id="@+id/txt_server_state_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="12dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="상태 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/img_service_server_item_back"
+            app:layout_constraintTop_toTopOf="@+id/img_service_server_item_back" />
+
+        <TextView
+            android:id="@+id/txt_server_date_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="생성일 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_server_state_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_server_state_back" />
+
+        <TextView
+            android:id="@+id/txt_server_os_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="운영체제 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_server_date_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_server_date_back" />
+
+        <TextView
+            android:id="@+id/txt_server_zone_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="위치(Zone) : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_server_os_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_server_os_back" />
+
+        <Button
+            android:id="@+id/btn_service_server_stop_txt"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:background="@null"
+            android:text="정지"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_service_server_stop"
+            app:layout_constraintStart_toEndOf="@+id/btn_service_server_stop"
+            app:layout_constraintTop_toTopOf="@+id/btn_service_server_stop" />
+
+        <Button
+            android:id="@+id/btn_service_server_start_txt"
+            android:layout_width="40dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:background="@null"
+            android:text="시작"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_service_server_start"
+            app:layout_constraintStart_toEndOf="@+id/btn_service_server_start"
+            app:layout_constraintTop_toTopOf="@+id/btn_service_server_start" />
+
+        <Button
+            android:id="@+id/btn_service_server_reStart_txt"
+            android:layout_width="42dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:background="@null"
+            android:text="재시작"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_service_server_reStart"
+            app:layout_constraintStart_toEndOf="@+id/btn_service_server_reStart"
+            app:layout_constraintTop_toTopOf="@+id/btn_service_server_reStart" />
+
+        <TextView
+            android:id="@+id/txt_service_server_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="서버 현재 상태 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_server_state_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_server_state_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_server_state_back" />
+
+        <TextView
+            android:id="@+id/txt_service_server_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YYYY-MM-DD 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_server_date_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_server_date_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_server_date_back" />
+
+        <TextView
+            android:id="@+id/txt_service_server_os"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="운영체제 상세 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_server_os_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_server_os_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_server_os_back" />
+
+        <TextView
+            android:id="@+id/txt_service_server_zone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zone 위치 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_server_zone_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_server_zone_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_server_zone_back" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

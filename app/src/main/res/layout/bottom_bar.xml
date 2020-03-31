@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay_bottom_bar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/bar_bottom"
+        android:layout_width="412dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@color/상단민트" />
+
+    <TextView
+        android:id="@+id/txt_monitoring"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginBottom="3dp"
+        android:text="MONITORING"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_service"
+        android:layout_marginLeft="41dp" />
+
+    <ImageView
+        android:id="@+id/img_dashboard"
+        android:layout_width="47dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="18dp"
+        android:onClick="DashboardClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ktlogo_cloud2"
+        android:layout_marginLeft="28dp" />
+
+    <ImageView
+        android:id="@+id/img_monitoirng"
+        android:layout_width="47dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="18dp"
+        android:onClick="MonitoringClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_service"
+        app:srcCompat="@drawable/ktlogo_monitoring3"
+        android:layout_marginLeft="55dp" />
+
+    <TextView
+        android:id="@+id/txt_dashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="3dp"
+        android:text="DASHBOARD"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="16dp" />
+
+    <TextView
+        android:id="@+id/txt_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginBottom="3dp"
+        android:text="SERVICE"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_dashboard"
+        android:layout_marginLeft="41dp" />
+
+    <TextView
+        android:id="@+id/txt_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="3dp"
+        android:text="SETTING"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="34dp" />
+
+    <ImageView
+        android:id="@+id/img_payment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="PaymentClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_monitoirng"
+        app:srcCompat="@drawable/payment"
+        android:layout_marginLeft="53dp" />
+
+    <ImageView
+        android:id="@+id/img_service"
+        android:layout_width="47dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="ServiceClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_dashboard"
+        app:srcCompat="@drawable/service_2"
+        android:layout_marginLeft="55dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

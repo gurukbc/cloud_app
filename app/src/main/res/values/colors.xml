@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F4F4F4</color>
+    <color name="colorPrimaryDark">#D8D8D8</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="상단민트">#94D1CA</color>
+    <color name="빨간글자">#FF3C35</color>
+    <color name="주황색글자">#FF7235</color>
+    <color name="초록글자">#1F7439</color>
+    <color name="검회색글자">#595C5A</color>
+    <color name="바주황">#FF9800</color>
+    <color name="빨간바">#F8485E</color>
+    <color name="회색">#F4F4F4</color>
+    <color name="검정">#1A1A1A</color>
+    <color name="진한회색">#898888</color>
+</resources>

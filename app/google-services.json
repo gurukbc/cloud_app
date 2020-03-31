@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "928436680254",
+    "firebase_url": "https://ktcloud-console.firebaseio.com",
+    "project_id": "ktcloud-console",
+    "storage_bucket": "ktcloud-console.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928436680254:android:0d833be240e65e0dcb436f",
+        "android_client_info": {
+          "package_name": "com.example.test1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928436680254-rv9ia0klf0ehe4jf6opls0c5au1eqt0e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgojRo_7puWf27A2lJZIz0d0MNsVm8ROg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "928436680254-rv9ia0klf0ehe4jf6opls0c5au1eqt0e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

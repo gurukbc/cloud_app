@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_metric_cycle"
+    android:layout_height="24dp"
+    android:layout_width="60dp"
+    android:background="@color/회색">
+    <item
+        android:id="@+id/h1"
+        android:title="1시간" />
+    <item
+        android:id="@+id/h3"
+        android:title="3시간"/>
+    <item
+        android:id="@+id/h6"
+        android:title="6시간"/>
+    <item
+        android:id="@+id/h12"
+        android:title="12시간"/>
+    <item
+        android:id="@+id/d1"
+        android:title="1일"/>
+    <item
+        android:id="@+id/w1"
+        android:title="1주일"/>
+</menu>

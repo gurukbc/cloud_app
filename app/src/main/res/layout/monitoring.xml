@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay_scroll_moni_alarm_back"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/lay_scroll_moni_metric"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toTopOf="@+id/bar_bottom"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/회색">
+
+            <ImageView
+                android:id="@+id/imageView23"
+                android:layout_width="412dp"
+                android:layout_height="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@color/colorAccent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lay_moni_alarm_metric"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/image44"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/image44"
+                android:layout_width="412dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_moni_alarm_data" />
+
+            <Button
+                android:id="@+id/btn_moni_main_alarm"
+                android:layout_width="98dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:background="@null"
+                android:ems="6"
+                android:focusableInTouchMode="false"
+                android:inputType="textPersonName"
+                android:text="알림 현황"
+                android:textColor="@color/검정"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView23"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btn_moni_main_metric"
+                android:layout_width="98dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:background="@null"
+                android:ems="10"
+                android:focusableInTouchMode="false"
+                android:inputType="textPersonName"
+                android:text="통합 메트릭"
+                android:textColor="@color/검정"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/image44"
+                app:layout_constraintStart_toStartOf="@+id/image44"
+                app:layout_constraintTop_toTopOf="@+id/image44" />
+
+            <Button
+                android:id="@+id/tbtn_moni_main_msg"
+                android:layout_width="98dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="3dp"
+                android:background="@null"
+                android:ems="10"
+                android:focusableInTouchMode="false"
+                android:inputType="textPersonName"
+                android:text="messaging"
+                android:textColor="@color/검회색글자"
+                android:textSize="17sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_moni_main_msg"
+                app:layout_constraintEnd_toEndOf="@+id/image44"
+                app:layout_constraintTop_toTopOf="@+id/btn_moni_main_msg" />
+
+            <ImageView
+                android:id="@+id/imageView22"
+                android:layout_width="48dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:background="@color/빨간바"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView43"
+                android:layout_width="48dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                app:layout_constraintStart_toStartOf="@+id/image44"
+                app:layout_constraintTop_toTopOf="@+id/image44"
+                app:srcCompat="@color/상단민트" />
+
+
+            <TextView
+                android:id="@+id/editText14"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:gravity="center_horizontal"
+                android:inputType="textPersonName"
+                android:text="알람 :"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView23" />
+
+            <Button
+                android:id="@+id/btn_moni_alarm_occ"
+                android:layout_width="53dp"
+                android:layout_height="29dp"
+                android:background="@color/colorPrimary"
+                android:stateListAnimator="@null"
+                android:text="발생 0"
+                android:textColor="@color/빨간글자"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/editText14"
+                app:layout_constraintEnd_toStartOf="@+id/btn_moni_alarm_data"
+                app:layout_constraintStart_toEndOf="@+id/editText14"
+                app:layout_constraintTop_toTopOf="@+id/editText14" />
+
+            <Button
+                android:id="@+id/btn_moni_alarm_normal"
+                android:layout_width="46dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginRight="48dp"
+                android:background="@color/colorPrimary"
+                android:stateListAnimator="@null"
+                android:text="안정 0"
+                android:textColor="@color/초록글자"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_moni_alarm_data"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_moni_alarm_data" />
+
+            <Button
+                android:id="@+id/btn_moni_alarm_data"
+                android:layout_width="85dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginRight="36dp"
+                android:background="@color/회색"
+                android:stateListAnimator="@null"
+                android:text="데이터 부족 0"
+                android:textColor="@color/주황색글자"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_moni_alarm_occ"
+                app:layout_constraintEnd_toStartOf="@+id/btn_moni_alarm_normal"
+                app:layout_constraintTop_toTopOf="@+id/btn_moni_alarm_occ" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lay_moni_main_metric"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image44"
+                app:layout_constraintVertical_bias="1.0">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NetworkIn"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="NetworkOut"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/metric_netIn" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="CPUUtilization"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/metric_netOut" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="DiskWriteBytes"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/metric_diskRead" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="MemoryInternalFree"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/metric_diskWrite" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="DiskReadBytes"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/metric_cpu" />
+
+                <LinearLayout
+                    android:id="@+id/metric_netIn"
+                    android:layout_width="0dp"
+                    android:layout_height="148dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/chart_networkin"
+                        android:layout_width="350dp"
+                        android:layout_height="121dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView44"
+                        app:layout_constraintVertical_bias="0.176" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/metric_netOut"
+                    android:layout_width="0dp"
+                    android:layout_height="148dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView11">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/chart_networkout"
+                        android:layout_width="353dp"
+                        android:layout_height="127dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/textView5"
+                        app:layout_constraintHorizontal_bias="0.024"
+                        app:layout_constraintStart_toStartOf="@+id/textView5"
+                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/metric_cpu"
+                    android:layout_width="0dp"
+                    android:layout_height="148dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/chart_cpuutilization"
+                        android:layout_width="353dp"
+                        android:layout_height="127dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/textView5"
+                        app:layout_constraintHorizontal_bias="0.024"
+                        app:layout_constraintStart_toStartOf="@+id/textView5"
+                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/metric_diskRead"
+                    android:layout_width="0dp"
+                    android:layout_height="148dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/chart_diskreadbytes"
+                        android:layout_width="353dp"
+                        android:layout_height="127dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/textView5"
+                        app:layout_constraintHorizontal_bias="0.024"
+                        app:layout_constraintStart_toStartOf="@+id/textView5"
+                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/metric_diskWrite"
+                    android:layout_width="0dp"
+                    android:layout_height="148dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView14">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/chart_diskwritebytes"
+                        android:layout_width="353dp"
+                        android:layout_height="127dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/textView5"
+                        app:layout_constraintHorizontal_bias="0.024"
+                        app:layout_constraintStart_toStartOf="@+id/textView5"
+                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/metric_memory"
+                    android:layout_width="0dp"
+                    android:layout_height="148dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView15">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/chart_memoryinternalfree"
+                        android:layout_width="353dp"
+                        android:layout_height="127dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="@+id/textView5"
+                        app:layout_constraintHorizontal_bias="0.024"
+                        app:layout_constraintStart_toStartOf="@+id/textView5"
+                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/btn_moni_main_msg"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp"
+                android:background="@drawable/alarm"
+                app:layout_constraintBottom_toBottomOf="@+id/image44"
+                app:layout_constraintEnd_toStartOf="@+id/tbtn_moni_main_msg"
+                app:layout_constraintTop_toTopOf="@+id/image44" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/bar_bottom"
+        android:layout_width="412dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@color/상단민트" />
+
+    <TextView
+        android:id="@+id/txt_monitoring"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginBottom="3dp"
+        android:text="MONITORING"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_service" />
+
+    <ImageView
+        android:id="@+id/img_dashboard"
+        android:layout_width="47dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="18dp"
+        android:onClick="DashboardClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ktlogo_cloud2" />
+
+    <ImageView
+        android:id="@+id/img_monitoirng"
+        android:layout_width="47dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="18dp"
+        android:onClick="MonitoringClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_service"
+        app:srcCompat="@drawable/ktlogo_monitoring3" />
+
+    <TextView
+        android:id="@+id/txt_dashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="3dp"
+        android:text="DASHBOARD"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginBottom="3dp"
+        android:text="SERVICE"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_dashboard" />
+
+    <TextView
+        android:id="@+id/txt_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="3dp"
+        android:text="SETTING"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_payment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_monitoirng"
+        app:srcCompat="@drawable/payment" />
+
+    <ImageView
+        android:id="@+id/img_service"
+        android:layout_width="47dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="ServiceClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_dashboard"
+        app:srcCompat="@drawable/service_2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

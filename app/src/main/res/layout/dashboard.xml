@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/회색"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ProgressBar>
+
+
+    <ImageView
+        android:id="@+id/img_techcenter"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="TechcenterClicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ktlogo_techservice" />
+
+    <ImageView
+        android:id="@+id/bar_bottom"
+        android:layout_width="412dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@color/상단민트" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="72dp"
+        app:layout_constraintBottom_toTopOf="@+id/bar_bottom"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/layout_1"
+                android:layout_width="0dp"
+                android:layout_height="400dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/bar_alarm"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@color/colorAccent" />
+
+            <ImageView
+                android:id="@+id/layout_2"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_1"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/txt_사용정보"
+                android:layout_width="80dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@null"
+                android:ems="10"
+                android:focusableInTouchMode="false"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:text="사용정보"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/layout_1"
+                app:layout_constraintTop_toTopOf="@+id/layout_1" />
+
+            <TextView
+                android:id="@+id/txt_알람"
+                android:layout_width="42dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="4dp"
+                android:background="@null"
+                android:ems="10"
+                android:focusableInTouchMode="false"
+                android:gravity="left|center_vertical"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="false"
+                android:text="알람"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/layout_2"
+                app:layout_constraintTop_toTopOf="@+id/layout_2" />
+
+            <TextView
+                android:id="@+id/txt_금액"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/textboxline"
+                android:gravity="center"
+                android:text="@string/금액"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_요금"
+                app:layout_constraintEnd_toEndOf="@+id/txt_요금"
+                app:layout_constraintStart_toStartOf="@+id/txt_요금"
+                app:layout_constraintTop_toTopOf="@+id/txt_요금" />
+
+            <TextView
+                android:id="@+id/txt_요금"
+                android:layout_width="189dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="24dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="요금"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/lay_server"
+                app:layout_constraintEnd_toEndOf="@+id/layout_1"
+                app:layout_constraintStart_toEndOf="@+id/txt_사용정보"
+                app:layout_constraintTop_toTopOf="@+id/layout_1" />
+
+            <ImageView
+                android:id="@+id/bar_userinfo"
+                android:layout_width="48dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="18dp"
+                android:background="@color/바주황"
+                app:layout_constraintStart_toStartOf="@+id/layout_1"
+                app:layout_constraintTop_toTopOf="@+id/layout_1" />
+
+            <ImageView
+                android:id="@+id/bar_alarm"
+                android:layout_width="48dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="18dp"
+                android:background="@color/빨간바"
+                app:layout_constraintStart_toStartOf="@+id/layout_2"
+                app:layout_constraintTop_toTopOf="@+id/layout_2" />
+
+
+            -
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_alarm"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintBottom_toBottomOf="@+id/layout_2"
+                app:layout_constraintEnd_toEndOf="@+id/layout_2"
+                app:layout_constraintStart_toStartOf="@+id/layout_2"
+                app:layout_constraintTop_toBottomOf="@+id/txt_알람" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lay_server"
+                android:layout_width="0dp"
+                android:layout_height="148dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/layout_1"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/layout_1"
+                app:layout_constraintTop_toBottomOf="@+id/txt_사용정보">
+
+                <TextView
+                    android:id="@+id/txt_server_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/textboxline"
+                    android:gravity="center_horizontal"
+                    android:text="사용 중"
+                    app:layout_constraintBottom_toBottomOf="@+id/editText7"
+                    app:layout_constraintEnd_toEndOf="@+id/editText7"
+                    app:layout_constraintStart_toStartOf="@+id/editText7"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.533" />
+
+                <Button
+                    android:id="@+id/btn_server"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/ktlogo_server"
+                    android:onClick="ServerClicked"
+                    android:stateListAnimator="@null"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/editText7"
+                    android:layout_width="112dp"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="20dp"
+                    android:ems="5"
+                    android:gravity="left|center_vertical"
+                    android:inputType="textPersonName"
+                    android:text="서버"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@+id/btn_server"
+                    app:layout_constraintTop_toTopOf="@+id/btn_server" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_server"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#F0F0F0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editText7" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            -
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lay_monitoring"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/layout_1"
+                app:layout_constraintEnd_toEndOf="@+id/layout_1"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/layout_1"
+                app:layout_constraintTop_toBottomOf="@+id/lay_server"
+                app:layout_constraintVertical_bias="1.0">
+
+                <TextView
+                    android:id="@+id/txt_monitoring_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="40dp"
+                    android:background="@drawable/textboxline"
+                    android:gravity="center_horizontal"
+                    android:text="사용 중"
+                    app:layout_constraintBottom_toBottomOf="@+id/editText8"
+                    app:layout_constraintEnd_toEndOf="@+id/editText8"
+                    app:layout_constraintStart_toStartOf="@+id/editText8"
+                    app:layout_constraintTop_toTopOf="@+id/editText8" />
+
+                <TextView
+                    android:id="@+id/editText8"
+                    android:layout_width="112dp"
+                    android:layout_height="39dp"
+                    android:layout_marginStart="20dp"
+                    android:ems="7"
+                    android:gravity="left|center_vertical"
+                    android:inputType="textPersonName"
+                    android:text="DB"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toEndOf="@+id/btn_monitoring"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btn_monitoring"
+                    android:layout_width="33dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="14dp"
+                    android:background="@drawable/ktlogo_db3"
+                    android:onClick="DBClicked"
+                    android:stateListAnimator="@null"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_monitoring"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#F0F0F0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editText8"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/txt_monitoring"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginBottom="3dp"
+        android:text="MONITORING"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_service" />
+
+    <ImageView
+        android:id="@+id/img_dashboard"
+        android:layout_width="47dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="18dp"
+        android:onClick="DashboardClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ktlogo_cloud2" />
+
+    <ImageView
+        android:id="@+id/img_monitoirng"
+        android:layout_width="47dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="18dp"
+        android:onClick="MonitoringClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_service"
+        app:srcCompat="@drawable/ktlogo_monitoring3" />
+
+    <TextView
+        android:id="@+id/txt_dashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="3dp"
+        android:text="DASHBOARD"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginBottom="3dp"
+        android:text="SERVICE"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_dashboard" />
+
+    <TextView
+        android:id="@+id/txt_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="3dp"
+        android:text="SETTING"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_payment"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_monitoirng"
+        app:srcCompat="@drawable/payment" />
+
+    <ImageView
+        android:id="@+id/img_service"
+        android:layout_width="47dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="ServiceClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_dashboard"
+        app:srcCompat="@drawable/service_2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/service_db_lay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_service_db"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lay_service_db2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_service_db"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/db" />
+
+            <TextView
+                android:id="@+id/txt_db_service_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:text="DB 이름 받아오기 (클릭시 하단 관리창)"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="@+id/img_service_db"
+                app:layout_constraintStart_toEndOf="@+id/img_service_db"
+                app:layout_constraintTop_toTopOf="@+id/img_service_db" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/view6"
+        style="@style/Divider"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimaryDark" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_service_db_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <ImageView
+            android:id="@+id/img_service_db_item_back"
+            android:layout_width="396dp"
+            android:layout_height="220dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@color/회색" />
+
+        <TextView
+            android:id="@+id/txt_db_state_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="12dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="상태 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/img_service_db_item_back"
+            app:layout_constraintTop_toTopOf="@+id/img_service_db_item_back" />
+
+        <TextView
+            android:id="@+id/txt_db_DBstate_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="DB 상태 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_db_state_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_db_state_back" />
+
+        <TextView
+            android:id="@+id/txt_db_size_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="용량 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_db_DBstate_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_db_DBstate_back" />
+
+        <TextView
+            android:id="@+id/txt_db_date_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="생성일 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_db_size_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_db_size_back" />
+
+        <TextView
+            android:id="@+id/txt_db_dev_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="종속장치 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_db_date_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_db_date_back" />
+
+        <TextView
+            android:id="@+id/txt_db_zone_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="위치(Zone) : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_db_dev_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_db_dev_back" />
+
+        <TextView
+            android:id="@+id/txt_service_db_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DB 현재 상태 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_db_state_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_db_state_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_db_state_back" />
+
+        <TextView
+            android:id="@+id/txt_service_db_DBstate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DB 현재 상태 받아오기 (정상 || 비정상)"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_db_DBstate_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_db_DBstate_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_db_DBstate_back" />
+
+        <TextView
+            android:id="@+id/txt_service_db_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(EX) 20GB"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_db_size_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_db_size_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_db_size_back" />
+
+        <TextView
+            android:id="@+id/txt_service_db_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YYYY-MM-DD 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_db_date_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_db_date_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_db_date_back" />
+
+        <TextView
+            android:id="@+id/txt_service_db_dev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="종속장치 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_db_dev_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_db_dev_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_db_dev_back" />
+
+        <TextView
+            android:id="@+id/txt_service_db_zone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zone 위치 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_db_zone_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_db_zone_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_db_zone_back" />
+
+        <TextView
+            android:id="@+id/txt_db_dup_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@null"
+            android:ems="8"
+            android:inputType="textPersonName"
+            android:text="신청용량(GB) 변경 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_db_zone_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_db_zone_back" />
+
+        <EditText
+            android:id="@+id/txt_db_dup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="9"
+            android:gravity="center"
+            android:inputType="number"
+            android:hint="신청 복제 DB 개수 입력"
+            android:textColor="@color/검회색글자"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_db_dup_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_db_dup_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_db_dup_back"
+            app:layout_constraintVertical_bias="0.647" />
+
+        <Button
+            android:id="@+id/btn_db_dup"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/check"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_db_dup"
+            app:layout_constraintStart_toEndOf="@+id/txt_db_dup"
+            app:layout_constraintTop_toTopOf="@+id/txt_db_dup" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
