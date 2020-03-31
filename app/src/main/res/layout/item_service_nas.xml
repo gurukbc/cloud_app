@@ -81,26 +81,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <View
-            android:id="@+id/view2"
-            style="@style/Divider"
-            android:layout_width="wrap_content"
-            android:layout_height="2dp"
-            android:layout_marginTop="4dp"
-            android:background="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="@+id/imageView23"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_nas_protocol_back" />
 
         <ImageView
             android:id="@+id/img_service_nas_item_back"
             android:layout_width="396dp"
-            android:layout_height="180dp"
+            android:layout_height="240dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@color/회색" />
-
 
         <TextView
             android:id="@+id/txt_nas_zone_back"
@@ -161,10 +149,38 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_nas_curSize_back" />
 
         <TextView
+            android:id="@+id/txt_nas_file_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="6"
+            android:inputType="textPersonName"
+            android:text="현재 파일 수 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_nas_protocol_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nas_protocol_back" />
+
+        <TextView
+            android:id="@+id/txt_nas_date_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="생성일자 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_nas_file_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nas_file_back" />
+
+        <TextView
             android:id="@+id/txt_nas_tarSize_change_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:background="@null"
             android:ems="8"
             android:inputType="textPersonName"
@@ -172,7 +188,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/txt_nas_protocol_back"
-            app:layout_constraintTop_toBottomOf="@+id/txt_nas_protocol_back" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_nas_date_back" />
 
         <TextView
             android:id="@+id/txt_service_nas_tarSize"
@@ -202,6 +218,24 @@
             app:layout_constraintStart_toEndOf="@+id/txt_nas_protocol_back"
             app:layout_constraintTop_toTopOf="@+id/txt_nas_protocol_back" />
 
+
+        <TextView
+            android:id="@+id/txt_service_nas_file"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="현재 파일 수 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_nas_file_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_nas_file_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_nas_file_back" />
+
+        <TextView
+            android:id="@+id/txt_service_nas_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="생성일자 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_nas_date_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_nas_date_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_nas_date_back" />
 
         <TextView
             android:id="@+id/txt_service_nas_zone"

@@ -68,26 +68,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <View
-            android:id="@+id/view2"
-            style="@style/Divider"
-            android:layout_width="wrap_content"
-            android:layout_height="2dp"
-            android:layout_marginTop="4dp"
-            android:background="@color/colorPrimaryDark"
-            app:layout_constraintEnd_toEndOf="@+id/imageView23"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_auto_maxVM_back" />
 
         <ImageView
             android:id="@+id/img_service_auto_item_back"
             android:layout_width="396dp"
-            android:layout_height="220dp"
+            android:layout_height="264dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@color/회색" />
-
 
         <TextView
             android:id="@+id/txt_auto_state_back"
@@ -163,24 +151,52 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_auto_tarVM_back" />
 
         <TextView
-        android:id="@+id/txt_auto_maxVM_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="@null"
-        android:ems="5"
-        android:inputType="textPersonName"
-        android:text="최대 VM수 : "
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/txt_auto_minVM_back"
-        app:layout_constraintTop_toBottomOf="@+id/txt_auto_minVM_back" />
+            android:id="@+id/txt_auto_maxVM_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="최대 VM수 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_auto_minVM_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_auto_minVM_back" />
+
+        <TextView
+            android:id="@+id/txt_auto_down_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="5"
+            android:inputType="textPersonName"
+            android:text="쿨다운 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_auto_maxVM_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_auto_maxVM_back" />
+
+        <TextView
+            android:id="@+id/txt_auto_time_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:ems="8"
+            android:inputType="textPersonName"
+            android:text="헬스체크 유예 시간 : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txt_auto_down_back"
+            app:layout_constraintTop_toBottomOf="@+id/txt_auto_down_back" />
 
         <TextView
             android:id="@+id/txt_auto_tarVM_change_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:background="@null"
             android:ems="7"
             android:inputType="textPersonName"
@@ -188,7 +204,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/txt_auto_maxVM_back"
-            app:layout_constraintTop_toBottomOf="@+id/txt_auto_maxVM_back" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_auto_time_back" />
 
         <TextView
             android:id="@+id/txt_service_auto_state"
@@ -235,6 +251,24 @@
             app:layout_constraintStart_toEndOf="@+id/txt_auto_maxVM_back"
             app:layout_constraintTop_toTopOf="@+id/txt_auto_maxVM_back" />
 
+
+        <TextView
+            android:id="@+id/txt_service_auto_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="쿨다운 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_auto_down_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_auto_down_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_auto_down_back" />
+
+        <TextView
+            android:id="@+id/txt_service_auto_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="헬스체크 유예 시간 받아오기"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_auto_time_back"
+            app:layout_constraintStart_toEndOf="@+id/txt_auto_time_back"
+            app:layout_constraintTop_toTopOf="@+id/txt_auto_time_back" />
 
         <TextView
             android:id="@+id/txt_service_auto_zone"

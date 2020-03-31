@@ -6,7 +6,6 @@ import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -62,6 +61,7 @@ public class DiskAdapter extends RecyclerView.Adapter {
         private TextView zonename;
         private TextView server;
         private TextView size;
+        private TextView type; // 구분명
         private DiskData dData;
 
         // API 여부와 관계없이 고정된 뷰들
@@ -82,6 +82,7 @@ public class DiskAdapter extends RecyclerView.Adapter {
             server = view.findViewById(R.id.txt_service_disk_server);
             size = view.findViewById(R.id.txt_service_disk_size);
             item = view.findViewById(R.id.lay_service_disk_item);
+            type = view.findViewById(R.id.txt_service_disk_type);
         }
 
         void onBind(DiskData data, int position) {
@@ -96,6 +97,7 @@ public class DiskAdapter extends RecyclerView.Adapter {
             size.setText(data.getSize());
             zonename.setText(data.getZonename());
             created.setText(data.getCreated());
+            type.setText(data.getType());
 
             changeVisibility(selectedItems.get(position));
 
@@ -138,7 +140,7 @@ public class DiskAdapter extends RecyclerView.Adapter {
          */
         private void changeVisibility(final boolean isExpanded) {
             // height 값을 dp로 지정해서 넣고싶으면 아래 소스를 이용
-            int dpValue = 172;
+            int dpValue = 176;
             float d = mContext.getResources().getDisplayMetrics().density;
             int height = (int) (dpValue * d);
 

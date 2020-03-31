@@ -104,6 +104,8 @@ public class NASAdapter extends RecyclerView.Adapter {
         private TextView tarSize;
         private TextView curSize;
         private TextView protocol;
+        private TextView file; // 현재 파일 수
+        private TextView date; // 생성 일자
         private NASData nData;
         private EditText data;
 
@@ -123,6 +125,8 @@ public class NASAdapter extends RecyclerView.Adapter {
             zoneName = view.findViewById(R.id.txt_service_nas_zone);
             tarSize = view.findViewById(R.id.txt_service_nas_tarSize);
             item = view.findViewById(R.id.lay_service_nas_item);
+            file = view.findViewById(R.id.txt_service_nas_file);
+            date = view.findViewById(R.id.txt_service_nas_date);
 
             button_update = view.findViewById(R.id.btn_nas_tarSize_change);
             data = view.findViewById(R.id.txt_nas_tarSize_change);
@@ -139,6 +143,8 @@ public class NASAdapter extends RecyclerView.Adapter {
             tarSize.setText(data.getTarSize());
             zoneName.setText(data.getZoneName());
             protocol.setText(data.getProtocol());
+            file.setText(data.getFile());
+            date.setText(data.getDate());
             id = data.getId();
 
             changeVisibility(selectedItems.get(position));
@@ -182,7 +188,7 @@ public class NASAdapter extends RecyclerView.Adapter {
          */
         private void changeVisibility(final boolean isExpanded) {
             // height 값을 dp로 지정해서 넣고싶으면 아래 소스를 이용
-            int dpValue = 184;
+            int dpValue = 248;
             float d = mContext.getResources().getDisplayMetrics().density;
             int height = (int) (dpValue * d);
 

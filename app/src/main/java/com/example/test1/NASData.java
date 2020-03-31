@@ -1,6 +1,17 @@
 package com.example.test1;
 
 public class NASData {
+
+    private String name;
+    private String zoneName;
+    private String tarSize;
+    private String curSize;
+    private String protocol;
+    private String id;
+    private String file; // 현재 파일 수
+    private String date; // 생성일자
+    private int resId;
+
     public String getName() {
         return name;
     }
@@ -57,11 +68,20 @@ public class NASData {
         this.id = id;
     }
 
-    private String name;
-    private String zoneName;
-    private String tarSize;
-    private String curSize;
-    private String protocol;
-    private String id;
-    private int resId;
+    public String getFile() {
+        return file;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
 }

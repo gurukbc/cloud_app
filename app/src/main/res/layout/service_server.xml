@@ -165,4 +165,14 @@
         app:layout_constraintStart_toEndOf="@+id/img_dashboard"
         app:srcCompat="@drawable/service_2" />
 
+    <Button
+        android:id="@+id/btn_service_server_refresh"
+        android:layout_width="24dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/recycle"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_server_zone_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_server_zone_search" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -107,6 +107,8 @@ public class AutoScalingAdapter extends RecyclerView.Adapter {
         private TextView tarVM;
         private TextView minVM;
         private TextView maxVM;
+        private TextView down; // 쿨다운
+        private TextView time; // 헬스체크 유예시간
         private AutoscalingData atData;
         public EditText changevalue;
         public Button change;
@@ -130,6 +132,8 @@ public class AutoScalingAdapter extends RecyclerView.Adapter {
             maxVM = view.findViewById(R.id.txt_service_auto_maxVM);
             item = view.findViewById(R.id.lay_service_auto_item);
             changevalue = view.findViewById(R.id.txt_auto_tarVM_change);
+            down = view.findViewById(R.id.txt_service_auto_down);
+            time = view.findViewById(R.id.txt_service_auto_time);
             change = view.findViewById(R.id.btn_auto_tarVM_change);
         }
 
@@ -145,6 +149,8 @@ public class AutoScalingAdapter extends RecyclerView.Adapter {
             tarVM.setText(data.getTarVM());
             minVM.setText(data.getMinVm());
             maxVM.setText(data.getMaxVm());
+            down.setText(data.getDown());
+            time.setText(data.getTime());
 
             changeVisibility(selectedItems.get(position));
 
@@ -188,7 +194,7 @@ public class AutoScalingAdapter extends RecyclerView.Adapter {
          */
         private void changeVisibility(final boolean isExpanded) {
             // height 값을 dp로 지정해서 넣고싶으면 아래 소스를 이용
-            int dpValue = 214;
+            int dpValue = 270;
             float d = mContext.getResources().getDisplayMetrics().density;
             int height = (int) (dpValue * d);
 

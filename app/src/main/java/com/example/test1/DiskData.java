@@ -7,7 +7,16 @@ class DiskData {
     private String Zonename;
     private String Server;
     private String Size;
+    private String type; // 구분명
     private int resId;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public DiskData() {
 

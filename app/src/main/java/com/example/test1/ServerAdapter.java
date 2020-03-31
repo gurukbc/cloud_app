@@ -162,6 +162,9 @@ public class ServerAdapter extends RecyclerView.Adapter {
         private TextView created;
         private TextView zonename;
         private TextView osname;
+        private TextView addr; // 내부주소
+        private TextView cpu; // CPU/메모리
+        private TextView disk; // 디스크 용량
         private String id;
         private ServerData sData;
 
@@ -182,6 +185,9 @@ public class ServerAdapter extends RecyclerView.Adapter {
             zonename = view.findViewById(R.id.txt_service_server_zone);
             osname = view.findViewById(R.id.txt_service_server_os);
             item = view.findViewById(R.id.lay_service_server_item);
+            addr = view.findViewById(R.id.txt_service_server_addr);
+            cpu = view.findViewById(R.id.txt_service_server_cpu);
+            disk = view.findViewById(R.id.txt_service_server_disk);
 
             buttonStop = view.findViewById(R.id.btn_service_server_stop_txt);
             buttonStart = view.findViewById(R.id.btn_service_server_start_txt);
@@ -199,6 +205,9 @@ public class ServerAdapter extends RecyclerView.Adapter {
             osname.setText(data.getOsname());
             zonename.setText(data.getZonename());
             created.setText(data.getCreated());
+            addr.setText(data.getAddr());
+            cpu.setText(data.getCpu());
+            disk.setText(data.getDisk());
             id = data.getId();
 
             changeVisibility(selectedItems.get(position));
@@ -242,7 +251,7 @@ public class ServerAdapter extends RecyclerView.Adapter {
          */
         private void changeVisibility(final boolean isExpanded) {
             // height 값을 dp로 지정해서 넣고싶으면 아래 소스를 이용
-            int dpValue = 214;
+            int dpValue = 306;
             float d = mContext.getResources().getDisplayMetrics().density;
             int height = (int) (dpValue * d);
 

@@ -8,6 +8,16 @@
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/btn_service_at_refresh"
+        android:layout_width="24dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/recycle"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_auto_zone_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_auto_zone_search" />
+
     <ImageView
         android:id="@+id/imageView36"
         android:layout_width="412dp"
