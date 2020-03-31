@@ -14,58 +14,44 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/lay_moni_alarm"
         android:layout_width="match_parent"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="@color/colorAccent"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/lay_moni_alarm2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/colorAccent"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
+
+        <ImageView
+            android:id="@+id/img_moni_alarm"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_notifications_black_24dp" />
 
-            <ImageView
-                android:id="@+id/img_moni_alarm"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_notifications_black_24dp" />
+        <TextView
+            android:id="@+id/txt_alarm_moni_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="Watch 알람명 (클릭시 하단 관리창)"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_moni_alarm"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/txt_alarm_moni_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginLeft="12dp"
-                android:text="Watch 알람명 (클릭시 하단 관리창)"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="@+id/img_moni_alarm"
-                app:layout_constraintStart_toEndOf="@+id/img_moni_alarm"
-                app:layout_constraintTop_toTopOf="@+id/img_moni_alarm" />
-
-            <View
-                android:id="@+id/view7"
-                style="@style/Divider"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_marginTop="4dp"
-                android:background="@color/colorPrimaryDark"
-                app:layout_constraintEnd_toEndOf="@+id/imageView23"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_moni_alarm" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+        <View
+            android:id="@+id/view7"
+            style="@style/Divider"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="@+id/imageView23"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_moni_alarm" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -178,6 +164,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="알람 발생 조건 받아오기"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit= "marquee_forever"
             app:layout_constraintBottom_toBottomOf="@+id/txt_alarm_moni_if_back"
             app:layout_constraintStart_toEndOf="@+id/txt_alarm_moni_if_back"
             app:layout_constraintTop_toTopOf="@+id/txt_alarm_moni_if_back" />

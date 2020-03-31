@@ -52,6 +52,7 @@ public class MoniAlarmAdapter extends RecyclerView.Adapter {
         listData.add(data);
     }
 
+
     void rmItem() {
         listData.clear();
     }
@@ -97,6 +98,7 @@ public class MoniAlarmAdapter extends RecyclerView.Adapter {
             state.setText(data.getState());
             onoff.setText(data.getOnoff());
             condi.setText(data.getCondi());
+            condi.setSelected(true);
             act.setText(data.getAct());
             type.setText(data.getType());
 

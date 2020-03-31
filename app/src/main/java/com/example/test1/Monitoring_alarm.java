@@ -36,6 +36,9 @@ public class Monitoring_alarm extends AppCompatActivity {private MoniAlarmAdapte
     private List<MoniAlarmData> maData;
     APIcall_main API = (APIcall_main) getApplication();
     APIcall_watch apIcall_watch = new APIcall_watch();
+
+    // ########################################################### //
+    // 쓰레드에 있던 변수들 클래스 내 지역변수로 변경
     ArrayList<String[]> list = new ArrayList<String[]>();//ALARM 정보를 받아올 ArrayList
     final String[] state = new String[200];
     final String[] name =  new String[200];
@@ -43,6 +46,7 @@ public class Monitoring_alarm extends AppCompatActivity {private MoniAlarmAdapte
     final String[] onoff =  new String[200];
     final String[] act =  new String[200];
     final String[] type =  new String[200];
+
     final int[] list_size = new int[1];
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -249,6 +253,8 @@ public class Monitoring_alarm extends AppCompatActivity {private MoniAlarmAdapte
         recyclerView.setAdapter(maAdapter);
     }
 
+    // ########################################################### //
+    // 함수 복붙, 알람 메뉴 버튼 UX 기능 추가
     public void menu_btn() {
         // 메트릭 그래프 추가 옵션(주기, 통계 등) 선택
         final Button btn_status = (Button) findViewById(R.id.btn_moni_alarm_status_sel);
@@ -264,7 +270,7 @@ public class Monitoring_alarm extends AppCompatActivity {private MoniAlarmAdapte
                         int idx = 0;
                         switch (item.getItemId()) {
                             case R.id.occ:
-
+                                //maAdapter.notifyItemRangeRemoved(0, list.size());
                                 maAdapter.rmItem();
                                 valInit();
                                 for (int i = 0; i < list.size(); i++) {
@@ -353,6 +359,8 @@ public class Monitoring_alarm extends AppCompatActivity {private MoniAlarmAdapte
         });
     }
 
+    // ########################################################### //
+    // 함수 자체 추가, 지역변수 초기화
     public void valInit() {
         for(int i = 0; i < state.length; i++) {
             state[i] = null;
@@ -362,7 +370,7 @@ public class Monitoring_alarm extends AppCompatActivity {private MoniAlarmAdapte
             act[i] = null;
             type[i] = null;
         }
-    }
+}
 
 
     private void getData(String[] name, String[] state, String[] condi, String[] onoff, String[] act, String[] type) {
@@ -374,14 +382,19 @@ public class Monitoring_alarm extends AppCompatActivity {private MoniAlarmAdapte
         List<String> listAct = Arrays.asList(act);
         List<String> listType = Arrays.asList(type);
 
+        int num = 0;
+        for (int i = 0; i < name.length; i++) {
+            if (name[i] != null) { num += 1;}
+        }
+
         Integer [] tmp = new Integer[list_size[0]];
-        for(int i = 0; i < tmp.length; i++) {
+        for(int i = 0; i < num; i++) {
             tmp[i] = R.drawable.ic_notifications_black_24dp;
         }
 
         List<Integer> listResId = Arrays.asList(tmp);
 
-        for (int i = 0; i < list_size[0]; i++) {
+        for (int i = 0; i < num; i++) {
             // 각 List의 값들을 data 객체에 set 해줍니다.
             MoniAlarmData data = new MoniAlarmData();
             data.setName(listName.get(i));
@@ -432,110 +445,3 @@ public class Monitoring_alarm extends AppCompatActivity {private MoniAlarmAdapte
         startActivity(intent);
     }
 }
-/*
-
-public void menu_btn() {
-        // 메트릭 그래프 추가 옵션(주기, 통계 등) 선택
-        final Button btn_status = (Button) findViewById(R.id.btn_moni_alarm_status_sel);
-        btn_status.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu popup = new PopupMenu(getApplicationContext(), v);//v는 클릭된 뷰를 의미
-
-                getMenuInflater().inflate(R.menu.alarm_status_menu, popup.getMenu());
-                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        int idx = 0;
-                        switch (item.getItemId()) {
-                            case R.id.occ:
-
-                                maAdapter.rmItem();
-                                valInit();
-                                for (int i = 0; i < list.size(); i++) {
-                                    if(list.get(i)[1].equals("알람 발생")) {
-                                        state[idx] = list.get(i)[1];
-                                        condi[idx] = list.get(i)[2];
-                                        name[idx] = list.get(i)[0];
-                                        onoff[idx] = list.get(i)[3];
-                                        act[idx] = list.get(i)[4];
-                                        type[idx++] = list.get(i)[5];
-                                    }
-                                }
-                                getData(name, state, condi, onoff,act, type);
-                                idx = 0;
-
-                                btn_status.setText("발생");
-                                break;
-
-                            case R.id.nor:
-
-                                maAdapter.rmItem();
-                                valInit();
-                                for (int i = 0; i < list.size(); i++) {
-                                    if(list.get(i)[1].equals("안정")) {
-                                        state[idx] = list.get(i)[1];
-                                        condi[idx] = list.get(i)[2];
-                                        name[idx] = list.get(i)[0];
-                                        onoff[idx] = list.get(i)[3];
-                                        act[idx] = list.get(i)[4];
-                                        type[idx++] = list.get(i)[5];
-                                    }
-                                }
-                                getData(name, state, condi, onoff,act, type);
-                                idx = 0;
-
-                                btn_status.setText("안정");
-                                break;
-
-                            case R.id.data:
-
-                                maAdapter.rmItem();
-                                valInit();
-                                for (int i = 0; i < list.size(); i++) {
-                                    if(list.get(i)[1].equals("데이터 부족")) {
-                                        state[idx] = list.get(i)[1];
-                                        condi[idx] = list.get(i)[2];
-                                        name[idx] = list.get(i)[0];
-                                        onoff[idx] = list.get(i)[3];
-                                        act[idx] = list.get(i)[4];
-                                        type[idx++] = list.get(i)[5];
-                                    }
-                                }
-                                getData(name, state, condi, onoff,act, type);
-                                idx = 0;
-
-                                btn_status.setText("데이터 부족");
-                                break;
-
-                            case R.id.all:
-
-                                maAdapter.rmItem();
-                                valInit();
-                                for (int i = 0; i < list.size(); i++) {
-                                    state[idx] = list.get(i)[1];
-                                    condi[idx] = list.get(i)[2];
-                                    name[idx] = list.get(i)[0];
-                                    onoff[idx] = list.get(i)[3];
-                                    act[idx] = list.get(i)[4];
-                                    type[idx++] = list.get(i)[5];
-                                }
-                                getData(name, state, condi, onoff,act, type);
-                                idx = 0;
-
-                                btn_status.setText("전체");
-                                break;
-
-                            default:
-                                btn_status.setText("전체");
-                                break;
-                        }
-                        return false;
-                    }
-                });
-                popup.show();
-            }
-        });
-    }
- */
-
