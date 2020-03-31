@@ -1,5 +1,6 @@
 package com.example.test1;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -134,5 +135,37 @@ public class Monitoring_Messaging extends AppCompatActivity {
 
         // tpAdapter의 값이 변경되었다는 것을 알려줍니다.
         tpAdapter.notifyDataSetChanged();
+    }
+
+    /**
+     * 하단바의 Dashboard 버튼 클릭 처리 함수
+     */
+    public void DashboardClicked(View v) {
+        Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+        startActivity(intent);
+    }
+
+    /**
+     * 하단바의 service 버튼 클릭 처리 함수
+     */
+    public void ServiceClicked(View v) {
+        Intent intent = new Intent(getApplicationContext(), service_main.class);
+        startActivity(intent);
+    }
+
+    /**
+     * 하단바의 Monitoring 버튼 클릭 처리 함수
+     */
+    public void MonitoringClicked(View v) {
+        Intent intent = new Intent(getApplicationContext(), Monitoring.class);
+        startActivity(intent);
+    }
+
+    /**
+     * 하단바의 Payment 버튼 클릭 처리 함수
+     */
+    public void PaymentClicked(View v) {
+        Intent intent = new Intent(getApplicationContext(), Payment.class);
+        startActivity(intent);
     }
 }

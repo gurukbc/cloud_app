@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -57,6 +56,7 @@ public class service_server extends AppCompatActivity implements View.OnClickLis
         final String[] name = new String[100];
         final String[] zonename = new String[100];
         final String[] osname = new String[100];
+        final String[] id = new String[100];
 
         btn_zone = (Button)findViewById(R.id.btn_server_zone_search);
         btn_zone.setOnClickListener(this);
@@ -103,8 +103,9 @@ public class service_server extends AppCompatActivity implements View.OnClickLis
                             name[i] = list.get(i)[0];
                             zonename[i] = API.getZone();
                             osname[i] = list.get(i)[4];
+                            id[i] = list.get(i)[5];
                         }
-                        getData_service_s(state, created, name, zonename, osname);
+                        getData_service_s(state, created, name, zonename, osname, id);
                     }
                 });
             }
@@ -129,13 +130,14 @@ public class service_server extends AppCompatActivity implements View.OnClickLis
 //        return true;
 //    }
 
-    private void getData_service_s(String[] state, String[] created, String[] name, String[] zonename, String[] osname) {
+    private void getData_service_s(String[] state, String[] created, String[] name, String[] zonename, String[] osname,String[] id) {
         // 임의의 데이터입니다.
         List<String> listState = Arrays.asList(state);
         List<String> listCreated = Arrays.asList(created);
         List<String> listName = Arrays.asList(name);
         List<String> listZone = Arrays.asList(zonename);
         List<String> listOsname = Arrays.asList(osname);
+        List<String> listid = Arrays.asList(id);
 
         Integer[] tmp = new Integer[list_size];
 
@@ -157,6 +159,7 @@ public class service_server extends AppCompatActivity implements View.OnClickLis
             sData.setZonename(listZone.get(i));
             sData.setOsname(listOsname.get(i));
             sData.setCreated(listCreated.get(i));
+            sData.setId(listid.get(i));
             // 각 값이 들어간 data를 adapter에 추가합니다.
             svAdpater.addItem(sData);
         }

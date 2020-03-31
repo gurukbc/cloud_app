@@ -48,9 +48,9 @@ public class APIcall_watch extends APIcall_main {
 
 
     /**
-     * @brief 알람 이름에 따른 매트릭을 가진 hashmap을 리턴, UX과정에서 사용
      * @param alarmname 조회를 원하는 알람이름
      * @return
+     * @brief 알람 이름에 따른 매트릭을 가진 hashmap을 리턴, UX과정에서 사용
      */
     public static HashMap<String, String> getAlarmMetricInfo(String alarmname) {
         HashMap<String, String> tmp = new HashMap<String, String>();
@@ -62,9 +62,9 @@ public class APIcall_watch extends APIcall_main {
     }
 
     /**
-     * @brief 알람 이름에 따른 Threshold를 리턴
      * @param alarmname
      * @return
+     * @brief 알람 이름에 따른 Threshold를 리턴
      */
     public static String getAlarmThresholdInfo(String alarmname) {
         String tmp;
@@ -73,13 +73,17 @@ public class APIcall_watch extends APIcall_main {
     }
 
     /**
-     * @brief 최근 알람3개의 이름을 가진 list 리턴
      * @return
+     * @brief 최근 알람3개의 이름을 가진 list 리턴
      */
     public static ArrayList<String> getAlarmTitle() {
         return alarmList;
     }
 
+
+    public static void setStatistics(String s){
+        statistics = s;
+    }
 
     /**
      * @brief section 값을 구간으로, 현재 시간 및 통계 시작 시간을 설정하기 위한 함수
@@ -88,6 +92,14 @@ public class APIcall_watch extends APIcall_main {
         ZonedDateTime currDateTime = ZonedDateTime.now(ZoneId.of("Asia/Seoul"));
         endtime = currDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS"));
         starttime = currDateTime.minusHours(section).format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS"));
+    }
+
+    /**
+     * @brief 각 상세 그래프의 주기를 설정하기 위한 함수
+     * @param s 주기
+     */
+    private static void setPeriod(String s){
+        period = s;
     }
 
 
@@ -674,6 +686,10 @@ public class APIcall_watch extends APIcall_main {
         JSONArray dimension;
         JSONObject alarmactions;
         JSONArray alarmaction;
+        JSONObject insufficientdataactions;
+        JSONArray insufficientdataaction;
+        JSONObject okactions;
+        JSONArray okaction;
 
         System.out.println("총 alarm 수: " + parse_listalarmsresponse.get("count"));
 
@@ -733,8 +749,45 @@ public class APIcall_watch extends APIcall_main {
 
             String s = "";
 //            System.out.print("액션 종류: " );
-            for (int k = 0; k < alarmaction.size(); k++) {
-                s += (alarmaction.get(k) + " ");
+            for(int k=0; k < alarmaction.size(); k++) {
+                String alarmactionStr = String.valueOf(alarmaction.get(k));
+                String endpoint = "";
+
+                if(alarmactionStr.substring(0,3).contains("010")) endpoint="sms";
+                else if(alarmactionStr.contains("@"))  endpoint="email";
+                else if(alarmactionStr.contains("urn"))  endpoint="messaging";
+
+                s = "[알람 발생] "+ "[" + endpoint + "]" + " [" + alarmactionStr + "]";
+            }
+
+            insufficientdataactions = (JSONObject) alarm.get("insufficientdataactions");
+            insufficientdataaction = (JSONArray) insufficientdataactions.get("insufficientdataaction");
+
+
+            for(int k=0; k < insufficientdataaction.size(); k++) {
+                String alarmactionStr = String.valueOf(insufficientdataaction.get(k));
+                String endpoint = "";
+
+                if(alarmactionStr.substring(0,3).contains("010")) endpoint="sms";
+                else if(alarmactionStr.contains("@"))  endpoint="email";
+                else if(alarmactionStr.contains("urn"))  endpoint="messaging";
+
+                s = "[데이터 부족] "+ "[" + endpoint + "]" + " [" + alarmactionStr + "]";
+            }
+
+            okactions = (JSONObject) alarm.get("okactions");
+            okaction = (JSONArray) okactions.get("okaction");
+
+
+            for(int k=0; k < okaction.size(); k++) {
+                String alarmactionStr = String.valueOf(okaction.get(k));
+                String endpoint = "";
+
+                if(alarmactionStr.substring(0,3).contains("010")) endpoint="sms";
+                else if(alarmactionStr.contains("@"))  endpoint="email";
+                else if(alarmactionStr.contains("urn"))  endpoint="messaging";
+
+                s= "[안정] "+ "[" + endpoint + "]" + " [" + alarmactionStr + "]";
             }
 
             //이름, 상태, 알람 발생 조건, 액션 수행 여부, 수행 액션, 구분
@@ -798,15 +851,17 @@ public class APIcall_watch extends APIcall_main {
      * @throws ParseException
      * @brief (대시보드용) 발생 알람 출력을 위한 함수
      **/
-    public static void listAlarmsForDashboard() throws InvalidKeyException, NoSuchAlgorithmException, ParseException, IOException {
+    public static ArrayList<String> listAlarmsForDashboard() throws InvalidKeyException, NoSuchAlgorithmException, ParseException, IOException {
         int button = 7;
 
         TreeMap<String, String> request = new TreeMap<String, String>();
 
         request = generateRequire(button, request);
+        ArrayList<String> list = new ArrayList<String>();
 
         request.put("response", "json");
         request.put("apiKey", getApikey());
+
 
         String req_message = generateReq(request);
 //
@@ -822,31 +877,42 @@ public class APIcall_watch extends APIcall_main {
         JSONObject alarm;
 
         for (int i = 0; i < parse_alarm.size(); i++) {
-
+            String tmp ="";
             alarm = (JSONObject) parse_alarm.get(i);
-            String s = "";
 
             String state = String.valueOf(alarm.get("statevalue"));
             if (state.equals("ALARM")) {
-                s = "[Watch]" + String.valueOf(alarm.get("metricname")) + " " + String.valueOf(alarm.get("alarmname") + "이 발생했습니다.");
+                tmp = "[" + String.valueOf(alarm.get("alarmname") + "] " + String.valueOf(alarm.get("metricname")) + " 알람 발생");
+
+                String comparisonoperator = String.valueOf(alarm.get("comparisonoperator"));
+                if (comparisonoperator.equals("GreaterThanThreshold"))
+                    comparisonoperator = "보다 크다.";
+                else if (comparisonoperator.equals("GreaterThanOrEqualToThreshold"))
+                    comparisonoperator = "보다 크거나 같다. ";
+                else if (comparisonoperator.equals("LessThanThreshold"))
+                    comparisonoperator = "보다 작다. ";
+                else if (comparisonoperator.equals("LessThanOrEqualToThreshold"))
+                    comparisonoperator = "보다 작거나 같다.";
+
+                tmp += alarm.get("statistic") + "이(가) " + alarm.get("threshold") + alarm.get("unit") + comparisonoperator;
+                list.add(tmp);
             }
         }
-
-
+        return list;
     }
 
     /**
+     * @param alarmname  발생한 alarmname
+     * @param metricname 전체서버에 대해 조회하길 원하는 metricname
+     * @param timestamp  알람이 발생한 timestamp
      * @throws ParseException
      * @brief Watch 기능에 해당하는, 전체 서버에 대한 지정 메트릭 통계를 위한 함수
-     * @param alarmname 발생한 alarmname
-     * @param metricname 전체서버에 대해 조회하길 원하는 metricname
-     * @param timestamp 알람이 발생한 timestamp
      **/
     public static void showAlarmMetric(String alarmname, String metricname, LocalDateTime timestamp, HashMap<String, HashMap<String, String>> alarmMetricList) throws IOException, InvalidKeyException, NoSuchAlgorithmException, ParseException {
 
         int button = 6;
 
-        HashMap<String, String> points = new HashMap<String, String> ();
+        HashMap<String, String> points = new HashMap<String, String>();
 
         TreeMap<String, String> request = new TreeMap<String, String>();
 
@@ -863,12 +929,12 @@ public class APIcall_watch extends APIcall_main {
 
         endtime = currDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS"));
 
-        int timestampInt = Integer.parseInt(String.valueOf(timestamp).substring(0,4) + String.valueOf(timestamp).substring(5,7) + String.valueOf(timestamp).substring(8,10) + String.valueOf(timestamp).substring(11,13));
-        int endtimeInt = Integer.parseInt(endtime.substring(0,4) + endtime.substring(5,7) + endtime.substring(8,10) + endtime.substring(11,13));
+        int timestampInt = Integer.parseInt(String.valueOf(timestamp).substring(0, 4) + String.valueOf(timestamp).substring(5, 7) + String.valueOf(timestamp).substring(8, 10) + String.valueOf(timestamp).substring(11, 13));
+        int endtimeInt = Integer.parseInt(endtime.substring(0, 4) + endtime.substring(5, 7) + endtime.substring(8, 10) + endtime.substring(11, 13));
 
 
         // timestamp보다 현재 시간이 3시간 이상 지나지 않았을 경우
-        if(  (timestampInt + 3) > endtimeInt ) {
+        if ((timestampInt + 3) > endtimeInt) {
             request.put("endtime", endtime);
 
             starttime = currDateTime.minusHours(6).format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS"));
@@ -886,7 +952,7 @@ public class APIcall_watch extends APIcall_main {
 
         request.put("period", "60");
 
-        if(metricname.equals("CPUUtilization")) request.put("unit", "Percent");
+        if (metricname.equals("CPUUtilization")) request.put("unit", "Percent");
         else request.put("unit", "Bytes");
 
         String req_message = generateReq(request);
@@ -895,28 +961,28 @@ public class APIcall_watch extends APIcall_main {
         System.out.println(req_message);
         System.out.println();
 
-        JSONObject obj =  readJsonFromUrl(req_message);
+        JSONObject obj = readJsonFromUrl(req_message);
 
         JSONObject parse_getmetricstatisticsresponse = (JSONObject) obj.get("getmetricstatisticsresponse");
 
         JSONArray parse_metricstatistics = (JSONArray) parse_getmetricstatisticsresponse.get("metricstatistics");
         JSONObject metric;
 
-        System.out.println("총 point 수: "+ parse_getmetricstatisticsresponse.get("count"));
+        System.out.println("총 point 수: " + parse_getmetricstatisticsresponse.get("count"));
 
-        for(int i = 0 ; i <  parse_metricstatistics.size(); i++) {
+        for (int i = 0; i < parse_metricstatistics.size(); i++) {
 
             metric = (JSONObject) parse_metricstatistics.get(i);
 
 
-            points.put(String.valueOf(metric.get("timestamp")).substring(5,16).replaceAll("T", " "), String.valueOf(metric.get(statistics.toLowerCase())));
+            points.put(String.valueOf(metric.get("timestamp")).substring(5, 16).replaceAll("T", " "), String.valueOf(metric.get(statistics.toLowerCase())));
 
 
             System.out.println("##############################");
 
-            System.out.println("timestamp: "+  String.valueOf(metric.get("timestamp")).substring(5,16).replaceAll("T", " "));
-            System.out.println(statistics+ ": "+  metric.get(statistics.toLowerCase()));
-            System.out.println("unit: "+  metric.get("unit"));
+            System.out.println("timestamp: " + String.valueOf(metric.get("timestamp")).substring(5, 16).replaceAll("T", " "));
+            System.out.println(statistics + ": " + metric.get(statistics.toLowerCase()));
+            System.out.println("unit: " + metric.get("unit"));
 
 
         }
@@ -928,17 +994,17 @@ public class APIcall_watch extends APIcall_main {
 
 
     /**
+     * @param alarmname  발생한 알람 이름
+     * @param metricname 특성 서버에 대해 조회하길 원하는 metricname
+     * @param value      조회하길 원하는 특정 서버의 displayname(id) 값
+     * @param timestamp  알람이 발생한 timestamp
      * @throws ParseException
      * @brief 발생 알람에 대한 특정 서버의 지정 메트릭 통계를 위한 함수
-     * @param alarmname 발생한 알람 이름
-     * @param metricname 특성 서버에 대해 조회하길 원하는 metricname
-     * @param value 조회하길 원하는 특정 서버의 displayname(id) 값
-     * @param timestamp 알람이 발생한 timestamp
      **/
     public static void showAlarmMetric(String alarmname, String metricname, String value, LocalDateTime timestamp, HashMap<String, HashMap<String, String>> alarmMetricList) throws IOException, InvalidKeyException, NoSuchAlgorithmException, ParseException {
         int button = 6;
 
-        HashMap<String, String> points = new HashMap<String, String> ();
+        HashMap<String, String> points = new HashMap<String, String>();
 
         TreeMap<String, String> request = new TreeMap<String, String>();
 
@@ -959,11 +1025,11 @@ public class APIcall_watch extends APIcall_main {
         endtime = currDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS"));
 
 
-        int timestampInt = Integer.parseInt(String.valueOf(timestamp).substring(0,4) + String.valueOf(timestamp).substring(5,7) + String.valueOf(timestamp).substring(8,10) + String.valueOf(timestamp).substring(11,13));
-        int endtimeInt = Integer.parseInt(endtime.substring(0,4) + endtime.substring(5,7) + endtime.substring(8,10) + endtime.substring(11,13));
+        int timestampInt = Integer.parseInt(String.valueOf(timestamp).substring(0, 4) + String.valueOf(timestamp).substring(5, 7) + String.valueOf(timestamp).substring(8, 10) + String.valueOf(timestamp).substring(11, 13));
+        int endtimeInt = Integer.parseInt(endtime.substring(0, 4) + endtime.substring(5, 7) + endtime.substring(8, 10) + endtime.substring(11, 13));
 
         // timestamp보다 현재 시간이 3시간 이상 지나지 않았을 경우
-        if(  (timestampInt + 3) > endtimeInt ) {
+        if ((timestampInt + 3) > endtimeInt) {
             request.put("endtime", endtime);
 
             starttime = currDateTime.minusHours(6).format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS"));
@@ -981,7 +1047,7 @@ public class APIcall_watch extends APIcall_main {
 
         request.put("period", "60");
 
-        if(metricname.equals("CPUUtilization")) request.put("unit", "Percent");
+        if (metricname.equals("CPUUtilization")) request.put("unit", "Percent");
         else request.put("unit", "Bytes");
 
         String req_message = generateReq(request);
@@ -990,28 +1056,28 @@ public class APIcall_watch extends APIcall_main {
         System.out.println(req_message);
         System.out.println();
 
-        JSONObject obj =  readJsonFromUrl(req_message);
+        JSONObject obj = readJsonFromUrl(req_message);
 
         JSONObject parse_getmetricstatisticsresponse = (JSONObject) obj.get("getmetricstatisticsresponse");
 
         JSONArray parse_metricstatistics = (JSONArray) parse_getmetricstatisticsresponse.get("metricstatistics");
         JSONObject metric;
 
-        System.out.println("총 point 수: "+ parse_getmetricstatisticsresponse.get("count"));
+        System.out.println("총 point 수: " + parse_getmetricstatisticsresponse.get("count"));
 
-        for(int i = 0 ; i <  parse_metricstatistics.size(); i++) {
+        for (int i = 0; i < parse_metricstatistics.size(); i++) {
 
             metric = (JSONObject) parse_metricstatistics.get(i);
 
 
-            points.put(String.valueOf(metric.get("timestamp")).substring(5,16).replaceAll("T", " "), String.valueOf(metric.get(statistics.toLowerCase())));
+            points.put(String.valueOf(metric.get("timestamp")).substring(5, 16).replaceAll("T", " "), String.valueOf(metric.get(statistics.toLowerCase())));
 
 
             System.out.println("##############################");
 
-            System.out.println("timestamp: "+  String.valueOf(metric.get("timestamp")).substring(5,16).replaceAll("T", " "));
-            System.out.println(statistics+ ": "+  metric.get(statistics.toLowerCase()));
-            System.out.println("unit: "+  metric.get("unit"));
+            System.out.println("timestamp: " + String.valueOf(metric.get("timestamp")).substring(5, 16).replaceAll("T", " "));
+            System.out.println(statistics + ": " + metric.get(statistics.toLowerCase()));
+            System.out.println("unit: " + metric.get("unit"));
 
 
         }
@@ -1020,8 +1086,8 @@ public class APIcall_watch extends APIcall_main {
         alarmMetricList.put(alarmname, points);
 
 
-
     }
+
     /**
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeyException
@@ -1032,9 +1098,9 @@ public class APIcall_watch extends APIcall_main {
     public static void listAlarmHistory() throws InvalidKeyException, NoSuchAlgorithmException, ParseException, IOException {
         int button = 8;
 
-        alarmMetricList = new HashMap<String, HashMap<String, String>> ();
+        alarmMetricList = new HashMap<String, HashMap<String, String>>();
         alarmList = new ArrayList<String>();
-        alarmThreshold = new HashMap<String, String> ();
+        alarmThreshold = new HashMap<String, String>();
 
         TreeMap<String, String> request = new TreeMap<String, String>();
 
@@ -1045,14 +1111,13 @@ public class APIcall_watch extends APIcall_main {
         request.put("apiKey", getApikey());
 
 
-
         String req_message = generateReq(request);
 
         System.out.println("Request Message is...");
         System.out.println(req_message);
         System.out.println();
 
-        JSONObject obj =  readJsonFromUrl(req_message);
+        JSONObject obj = readJsonFromUrl(req_message);
 
         JSONObject parse_listalarmhistoryresponse = (JSONObject) obj.get("listalarmhistoryresponse");
 
@@ -1063,16 +1128,16 @@ public class APIcall_watch extends APIcall_main {
         String alarmname = "";
 
 
-        for(int i = 0 ; i <  pasrse_alarmhistory.size(); i++) {
+        for (int i = 0; i < pasrse_alarmhistory.size(); i++) {
             alarmhistory = (JSONObject) pasrse_alarmhistory.get(i);
 
-            if(i > 0) {
+            if (i > 0) {
                 // 중복되는 알람명이면 pass
-                if(alarmname.equals(String.valueOf(alarmhistory.get("alarmname")))) continue;
+                if (alarmname.equals(String.valueOf(alarmhistory.get("alarmname")))) continue;
             }
 
             // StateUpdate 중 from OK/INSUFFICIENT_DATA to ALARM 인 경우 알람 발생 메트릭 출력
-            if(String.valueOf(alarmhistory.get("historysummary")).substring(String.valueOf(alarmhistory.get("historysummary")).length()-5, String.valueOf(alarmhistory.get("historysummary")).length()).equals("ALARM")) {
+            if (String.valueOf(alarmhistory.get("historysummary")).substring(String.valueOf(alarmhistory.get("historysummary")).length() - 5, String.valueOf(alarmhistory.get("historysummary")).length()).equals("ALARM")) {
                 history_num++;
 
                 alarmname = String.valueOf(alarmhistory.get("alarmname"));
@@ -1093,14 +1158,14 @@ public class APIcall_watch extends APIcall_main {
 
                 req_message = generateReq(request);
 
-                obj =  readJsonFromUrl(req_message);
+                obj = readJsonFromUrl(req_message);
 
                 System.out.println("Request Message is...");
                 System.out.println(req_message);
                 System.out.println();
 
 
-                obj =  readJsonFromUrl(req_message);
+                obj = readJsonFromUrl(req_message);
 
                 JSONObject parse_listalarmsresponse = (JSONObject) obj.get("listalarmsresponse");
 
@@ -1117,20 +1182,17 @@ public class APIcall_watch extends APIcall_main {
                 alarmThreshold.put(alarmname, threshold);
 
 
-                if(dimensionCount.equals("0")) {
-                    if(namespace.equals("ucloud/server")) {
+                if (dimensionCount.equals("0")) {
+                    if (namespace.equals("ucloud/server")) {
                         namespace = "서버:모든서버통합";
 
                         showAlarmMetric(alarmname, metricname, timestamp, alarmMetricList);
-                    }
-                    else if (namespace.equals("ucloud/vr")) namespace = "ucloud/vr";
-                }
-
-                else {
+                    } else if (namespace.equals("ucloud/vr")) namespace = "ucloud/vr";
+                } else {
                     JSONObject dimensionOb = (JSONObject) dimension.get(0);
                     String dimensionName = String.valueOf(dimensionOb.get("name"));
-                    if(dimensionName.equals("templatename")) namespace = "서버:운영체제별통합";
-                    else if(dimensionName.equals("name")) {
+                    if (dimensionName.equals("templatename")) namespace = "서버:운영체제별통합";
+                    else if (dimensionName.equals("name")) {
                         if (namespace.equals("ucloud/vr")) namespace = "ucloud/vr:name";
                         else if (namespace.equals("ucloud/server")) {
                             String value = String.valueOf(dimensionOb.get("value"));
@@ -1138,11 +1200,9 @@ public class APIcall_watch extends APIcall_main {
 
                             showAlarmMetric(alarmname, metricname, value, timestamp, alarmMetricList);
                         }
-                    }
-                    else if(dimensionName.equals("serviceofferingname")) namespace = "서버:스펙별통합";
-                    else if(dimensionName.equals("LB")) namespace = "CloudLB:LB";
+                    } else if (dimensionName.equals("serviceofferingname")) namespace = "서버:스펙별통합";
+                    else if (dimensionName.equals("LB")) namespace = "CloudLB:LB";
                 }
-
 
 
                 System.out.println();

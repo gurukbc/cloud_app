@@ -36,9 +36,10 @@ public class Dashboard extends AppCompatActivity {
     Handler handler = new Handler();
     APIcall_main API = (APIcall_main) getApplication();
     APIcall_server api_server = new APIcall_server();
+    APIcall_watch apIcall_watch = new APIcall_watch();
     APIcall_DB api_db = new APIcall_DB();
 
-    int list_size, list_size_m;
+    int list_size, list_size_m, list_size_a;
 
     TextView server_num, db_num;
     private RecyclerAdapter adapter_s; // 서버용 어답터
@@ -73,18 +74,17 @@ public class Dashboard extends AppCompatActivity {
         final String[] title_m = new String[100];
         final String[] content_m = new String[100];
 
-        String[] title_a = {"[서버]", "[디스크]", "[디스크]"};
-        String[] content_a = {"테스트 알람 내용 1", "테스트 알람 내용 2", "테스트 알람 내용 3"};
+        final String[] title_a = new String[100];
+        final String[] content_a = new String[100];
 
         server_num = (TextView) findViewById(R.id.txt_server_number);
         db_num = (TextView) findViewById(R.id.txt_monitoring_number);
 
-        getData_a(title_a, content_a); // 모니터링용
-
-        //서버 목록 가져오기
+        //dashboard 목록 가져오기
         new Thread(new Runnable() {
             ArrayList<String[]> list = new ArrayList<String[]>();//서버 정보를 받아올 ArrayList
             ArrayList<String[]> list_m = new ArrayList<String[]>();//DB 정보를 받아올 ArrayList
+            ArrayList<String> list_a = new ArrayList<String>();//alarm 정보를 받아올 ArrayList
             @Override
             public void run() {
                 try {
@@ -93,7 +93,9 @@ public class Dashboard extends AppCompatActivity {
                     list = api_server.listServers();
                     list_size = list.size();
                     list_m = api_db.listMysqlDB();
-                    list_size_m = list.size();
+                    list_size_m = list_m.size();
+                    list_a = apIcall_watch.listAlarmsForDashboard();
+                    list_size_a = list_a.size();
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (InvalidKeyException e) {
@@ -120,6 +122,13 @@ public class Dashboard extends AppCompatActivity {
                             content_m[i] = "용량 : " + list_m.get(i)[3] + " 상태 : " + list_m.get(i)[1];
                         }
                         getData_m(title_m, content_m);
+
+                        for(int i=0;i<list_a.size();i++){
+                            String tmp = list_a.get(i);
+                            title_a[i] = tmp.substring(0,tmp.lastIndexOf("생")+1);
+                            content_a[i] = tmp.substring(tmp.lastIndexOf("생")+1);
+                        }
+                        getData_a(title_a, content_a); // 모니터링용
                     }
                 });
             }
@@ -167,15 +176,6 @@ public class Dashboard extends AppCompatActivity {
     }
 
     /**
-     * 하단바의 Dashboard 버튼 클릭 처리 함수
-     */
-    public void DashboardClicked(View v) {
-        Intent intent = new Intent(getApplicationContext(), Dashboard.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        startActivity(intent);
-    }
-
-    /**
      * @brief 서버 아이콘 클릭 처리 함수
      */
     public void ServerClicked(View v) {
@@ -190,6 +190,16 @@ public class Dashboard extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), service_db.class);
         startActivity(intent);
     }
+
+    /**
+     * 하단바의 Dashboard 버튼 클릭 처리 함수
+     */
+    public void DashboardClicked(View v) {
+        Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+    }
+
 
     /**
      * 하단바의 service 버튼 클릭 처리 함수
@@ -306,11 +316,19 @@ public class Dashboard extends AppCompatActivity {
         List<String> listTitle = Arrays.asList(title);
         List<String> listContent = Arrays.asList(content);
 
-        for (int i = 0; i < listTitle.size(); i++) {
+        Integer[] tmp = new Integer[list_size_a];
+        for (int i = 0; i < tmp.length; i++) {
+            tmp[i] = R.drawable.alarm;
+        }
+
+        List<Integer> listResId = Arrays.asList(tmp);
+
+        for (int i = 0; i < list_size_a; i++) {
             // 각 List의 값들을 data 객체에 set 해줍니다.
             Data data = new Data();
             data.setTitle(listTitle.get(i));
             data.setContent(listContent.get(i));
+            data.setResId(listResId.get(i));
 
             // 각 값이 들어간 data를 adapter에 추가합니다.
             adapter_a.addItem(data);
@@ -320,4 +338,3 @@ public class Dashboard extends AppCompatActivity {
         adapter_a.notifyDataSetChanged();
     }
 }
-

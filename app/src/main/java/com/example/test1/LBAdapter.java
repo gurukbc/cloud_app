@@ -1,5 +1,4 @@
 package com.example.test1;
-
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.DialogInterface;

@@ -6,6 +6,7 @@ class ServerData {
     private String Name;
     private String Zonename;
     private String Osname;
+    private String id;
     private int resId;
 
     public ServerData() {
@@ -22,6 +23,10 @@ class ServerData {
 
     public String getState() {
         return State;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getCreated() {
@@ -54,6 +59,10 @@ class ServerData {
 
     public void setName(String name) {
         this.Name = name;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setZonename(String zonename) {

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,6 +42,22 @@ public class MetricAdapter extends RecyclerView.Adapter {
 
         messageViewHolder.onBind(listData.get(position), position);
 
+
+
+        //in some cases, it will prevent unwanted situations
+        final MetricData objIncome = listData.get(position);
+        ((MessageViewHolder) holder).cbtn.setOnCheckedChangeListener(null);
+
+        //if true, your checkbox will be selected, else unselected
+        ((MessageViewHolder) holder).cbtn.setChecked(objIncome.checked);
+
+        ((MessageViewHolder) holder).cbtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                //set your object's last status
+                objIncome.setSelected();
+            }
+        });
     }
 
     @Override

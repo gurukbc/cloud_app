@@ -1,5 +1,6 @@
 package com.example.test1;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -48,27 +49,27 @@ public class Monitoring extends AppCompatActivity {
         final LineChart lineChart_memoryinternalfree = (LineChart) findViewById(R.id.chart_memoryinternalfree);
 
         final ArrayList<Entry> entries_networkin = new ArrayList<>();
-        final LineDataSet dataset_networkin = new LineDataSet(entries_networkin, "# of Calls");
+        final LineDataSet dataset_networkin = new LineDataSet(entries_networkin, "values");
         final ArrayList<String> labels_networkin = new ArrayList<String>();
 
         final ArrayList<Entry> entries_networkout = new ArrayList<>();
-        final LineDataSet dataset_networkout = new LineDataSet(entries_networkout, "# of Calls");
+        final LineDataSet dataset_networkout = new LineDataSet(entries_networkout, "values");
         final ArrayList<String> labels_networkout = new ArrayList<String>();
 
         final ArrayList<Entry> entries_cpuutil = new ArrayList<>();
-        final LineDataSet dataset_cpuutil = new LineDataSet(entries_cpuutil, "# of Calls");
+        final LineDataSet dataset_cpuutil = new LineDataSet(entries_cpuutil, "values");
         final ArrayList<String> labels_cpuutil = new ArrayList<String>();
 
         final ArrayList<Entry> entries_diskreadbytes = new ArrayList<>();
-        final LineDataSet dataset_diskreadbytes = new LineDataSet(entries_diskreadbytes, "# of Calls");
+        final LineDataSet dataset_diskreadbytes = new LineDataSet(entries_diskreadbytes, "values");
         final ArrayList<String> labels_diskreadbytes = new ArrayList<String>();
 
         final ArrayList<Entry> entries_diskwritebytes = new ArrayList<>();
-        final LineDataSet dataset_diskwritebytes = new LineDataSet(entries_diskwritebytes, "# of Calls");
+        final LineDataSet dataset_diskwritebytes = new LineDataSet(entries_diskwritebytes, "values");
         final ArrayList<String> labels_diskwritebytes = new ArrayList<String>();
 
         final ArrayList<Entry> entries_memoryinternalfree = new ArrayList<>();
-        final LineDataSet dataset_memoryinternalfree = new LineDataSet(entries_memoryinternalfree, "# of Calls");
+        final LineDataSet dataset_memoryinternalfree = new LineDataSet(entries_memoryinternalfree, "values");
         final ArrayList<String> labels_memoryinternalfree = new ArrayList<String>();
 
 
@@ -159,6 +160,7 @@ public class Monitoring extends AppCompatActivity {
                         lineChart_networkin.animateY(2000);
 
                         LineData data_networkout = new LineData(labels_networkout, dataset_networkout);
+                        dataset_networkout.setLineWidth(3.5f);
                         dataset_networkout.setColors(Collections.singletonList(0xFF94D1CA));
                         dataset_networkout.setDrawCubic(true); //선 둥글게 만들기
 
@@ -167,6 +169,7 @@ public class Monitoring extends AppCompatActivity {
 
                         LineData data_cpuutil = new LineData(labels_cpuutil, dataset_cpuutil);
                         dataset_cpuutil.setColors(Collections.singletonList(0xFF94D1CA));
+                        dataset_cpuutil.setLineWidth(3.5f);
                         dataset_cpuutil.setDrawCubic(true); //선 둥글게 만들기
 
                         lineChart_cpuutil.setData(data_cpuutil);
@@ -174,6 +177,7 @@ public class Monitoring extends AppCompatActivity {
 
                         LineData data_diskreadbytes = new LineData(labels_diskreadbytes, dataset_diskreadbytes);
                         dataset_diskreadbytes.setColors(Collections.singletonList(0xFF94D1CA));
+                        dataset_diskreadbytes.setLineWidth(3.5f);
                         dataset_diskreadbytes.setDrawCubic(true); //선 둥글게 만들기
 
                         lineChart_diskreadbytes.setData(data_diskreadbytes);
@@ -181,6 +185,7 @@ public class Monitoring extends AppCompatActivity {
 
                         LineData data_diskwritebytes = new LineData(labels_diskwritebytes, dataset_diskwritebytes);
                         dataset_diskwritebytes.setColors(Collections.singletonList(0xFF94D1CA));
+                        dataset_diskwritebytes.setLineWidth(3.5f);
                         dataset_diskwritebytes.setDrawCubic(true); //선 둥글게 만들기
 
                         lineChart_diskwritebytes.setData(data_diskwritebytes);
@@ -188,6 +193,7 @@ public class Monitoring extends AppCompatActivity {
 
                         LineData data_memoryinternalfree = new LineData(labels_memoryinternalfree, dataset_memoryinternalfree);
                         dataset_memoryinternalfree.setColors(Collections.singletonList(0xFF94D1CA));
+                        dataset_memoryinternalfree.setLineWidth(3.5f);
                         dataset_memoryinternalfree.setDrawCubic(true); //선 둥글게 만들기
 
                         lineChart_memoryinternalfree.setData(data_memoryinternalfree);
@@ -318,14 +324,46 @@ public class Monitoring extends AppCompatActivity {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {//UI접근
-                       occ.setText("발생 " + Integer.valueOf(list[0]));
-                       data.setText("데이터 부족 "+ Integer.valueOf(list[1]));
-                       nor.setText("안정 "+ Integer.valueOf(list[2]));
+                        occ.setText("발생 " + Integer.valueOf(list[0]));
+                        data.setText("데이터 부족 "+ Integer.valueOf(list[1]));
+                        nor.setText("안정 "+ Integer.valueOf(list[2]));
                     }
                 });
             }
         }).start();
     }
 
+
+    /**
+     * 하단바의 Dashboard 버튼 클릭 처리 함수
+     */
+    public void DashboardClicked(View v) {
+        Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+        startActivity(intent);
+    }
+
+    /**
+     * 하단바의 service 버튼 클릭 처리 함수
+     */
+    public void ServiceClicked(View v) {
+        Intent intent = new Intent(getApplicationContext(), service_main.class);
+        startActivity(intent);
+    }
+
+    /**
+     * 하단바의 Monitoring 버튼 클릭 처리 함수
+     */
+    public void MonitoringClicked(View v) {
+        Intent intent = new Intent(getApplicationContext(), Monitoring.class);
+        startActivity(intent);
+    }
+
+    /**
+     * 하단바의 Payment 버튼 클릭 처리 함수
+     */
+    public void PaymentClicked(View v) {
+        Intent intent = new Intent(getApplicationContext(), Payment.class);
+        startActivity(intent);
+    }
 
 }

@@ -25,9 +25,12 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 
 public class ServerAdapter extends RecyclerView.Adapter {
 
+    private AtomicBoolean run;
     private Context mContext;
     private List<ServerData> listData = new ArrayList<>();
     private SparseBooleanArray selectedItems = new SparseBooleanArray();
@@ -37,7 +40,6 @@ public class ServerAdapter extends RecyclerView.Adapter {
     APIcall_server api_server = new APIcall_server();
     Handler handler = new Handler(Looper.getMainLooper());
 
-
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -45,7 +47,6 @@ public class ServerAdapter extends RecyclerView.Adapter {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_service_server, parent, false);
         return new MessageViewHolder(view);
     }
-
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
@@ -58,6 +59,7 @@ public class ServerAdapter extends RecyclerView.Adapter {
         Button bs = ((MessageViewHolder) holder).buttonStop;
         Button bst = ((MessageViewHolder) holder).buttonStart;
         Button brs = ((MessageViewHolder) holder).buttonRestart;
+        final String id=((MessageViewHolder) holder).id;
 
         bs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,9 +68,7 @@ public class ServerAdapter extends RecyclerView.Adapter {
                     @Override
                     public void run() {
                         try {
-                            if(!state.equals("Stopped")) {tmp[0] = api_server.stopServer(position);
-
-                            System.out.println(tmp[0]);}
+                            if(!state.equals("Stopped")) api_server.stopServer(id);
                             else {
                                 handler.post(new Runnable() {
                                     @Override
@@ -162,6 +162,7 @@ public class ServerAdapter extends RecyclerView.Adapter {
         private TextView created;
         private TextView zonename;
         private TextView osname;
+        private String id;
         private ServerData sData;
 
         // API 여부와 관계없이 고정된 뷰들
@@ -182,7 +183,6 @@ public class ServerAdapter extends RecyclerView.Adapter {
             osname = view.findViewById(R.id.txt_service_server_os);
             item = view.findViewById(R.id.lay_service_server_item);
 
-
             buttonStop = view.findViewById(R.id.btn_service_server_stop_txt);
             buttonStart = view.findViewById(R.id.btn_service_server_start_txt);
             buttonRestart = view.findViewById(R.id.btn_service_server_reStart_txt);
@@ -199,6 +199,7 @@ public class ServerAdapter extends RecyclerView.Adapter {
             osname.setText(data.getOsname());
             zonename.setText(data.getZonename());
             created.setText(data.getCreated());
+            id = data.getId();
 
             changeVisibility(selectedItems.get(position));
 
