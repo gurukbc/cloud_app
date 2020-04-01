@@ -74,10 +74,8 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginLeft="12dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="12dp"
-                android:layout_marginRight="12dp"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toTopOf="@+id/image44"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -102,8 +100,8 @@
                     android:layout_marginTop="8dp"
                     android:text="최근알람3"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/lay_alarm_third"
-                    app:layout_constraintTop_toBottomOf="@+id/lay_alarm_fisrst" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lay_alarm_second" />
 
                 <TextView
                     android:id="@+id/txt_alarm_second"
@@ -118,7 +116,7 @@
                 <LinearLayout
                     android:id="@+id/lay_alarm_fisrst"
                     android:layout_width="0dp"
-                    android:layout_height="124dp"
+                    android:layout_height="112dp"
                     android:layout_marginTop="4dp"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -127,8 +125,8 @@
 
                     <com.github.mikephil.charting.charts.LineChart
                         android:id="@+id/chart_alarm1"
-                        android:layout_width="354dp"
-                        android:layout_height="110dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
@@ -140,18 +138,18 @@
 
                 <LinearLayout
                     android:id="@+id/lay_alarm_second"
-                    android:layout_width="180dp"
-                    android:layout_height="0dp"
+                    android:layout_width="0dp"
+                    android:layout_height="112dp"
                     android:layout_marginTop="4dp"
                     android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txt_alarm_second">
 
                     <com.github.mikephil.charting.charts.LineChart
                         android:id="@+id/chart_alarm2"
-                        android:layout_width="152dp"
-                        android:layout_height="88dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
@@ -165,20 +163,18 @@
                 <LinearLayout
                     android:id="@+id/lay_alarm_third"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
+                    android:layout_height="112dp"
                     android:layout_marginTop="4dp"
                     android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/lay_alarm_second"
+                    app:layout_constraintStart_toStartOf="@+id/txt_alarm_third"
                     app:layout_constraintTop_toBottomOf="@+id/txt_alarm_third">
 
                     <com.github.mikephil.charting.charts.LineChart
                         android:id="@+id/chart_alarm3"
-                        android:layout_width="158dp"
-                        android:layout_height="89dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
@@ -191,7 +187,7 @@
                 android:id="@+id/image44"
                 android:layout_width="412dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="300dp"
+                android:layout_marginTop="440dp"
                 android:background="@color/colorAccent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

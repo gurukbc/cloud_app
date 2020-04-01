@@ -99,13 +99,9 @@ public class Monitoring_alarm extends AppCompatActivity {private MoniAlarmAdapte
         }
         btn_status.setText(value);
 
-        //ALL, INSUFFICIENT_DATA, OK, ALARM
-        switch(value){
-            case "전체" : statevalue[0] = "ALL"; break;
-            case "발생" : statevalue[0] = "ALARM"; break;
-            case "안정" : statevalue[0] = "OK"; break;
-            case "데이터 부족" : statevalue[0] = "INSUFFICIENT_DATA"; break;
-        }
+        // 인텐트로 받은 값 쓰레드 안에 전달
+        statevalue[0] = value;
+
         new Thread(new Runnable() {
             ArrayList<String> list_name = new ArrayList<String>();//최근 ALARM 정보를 받아올 ArrayList
 
@@ -139,7 +135,7 @@ public class Monitoring_alarm extends AppCompatActivity {private MoniAlarmAdapte
                     xlist_alarm3 = list_alarm3.keySet();
                     thres_alarm3 = apIcall_watch.getAlarmThresholdInfo(list_name.get(2));
 
-                    list = apIcall_watch.listAlarms(statevalue[0]);
+                    list = apIcall_watch.listAlarms("ALL");
                     list_size[0] = list.size();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -220,13 +216,17 @@ public class Monitoring_alarm extends AppCompatActivity {private MoniAlarmAdapte
                         lineDataSet_alarm3.add(dataset_alarm3_1);
                         lineChart_alarm3.setData(new LineData(labels_alarm3,lineDataSet_alarm3));
 
+                        // 모니터링 메인화면에서 클릭한 알람 상태 변수에 따라 초기 화면 설정
+                        int idx = 0;
                         for (int i = 0; i < list.size(); i++) {
-                            state[i] = list.get(i)[1];
-                            condi[i] = list.get(i)[2];
-                            name[i] = list.get(i)[0];
-                            onoff[i] = list.get(i)[3];
-                            act[i] = list.get(i)[4];
-                            type[i] = list.get(i)[5];
+                            if (list.get(i)[1].equals(statevalue[0]) || statevalue[0].equals("전체")) {
+                                state[idx] = list.get(i)[1];
+                                condi[idx] = list.get(i)[2];
+                                name[idx] = list.get(i)[0];
+                                onoff[idx] = list.get(i)[3];
+                                act[idx] = list.get(i)[4];
+                                type[idx++] = list.get(i)[5];
+                            }
                         }
                         getData(name, state, condi, onoff,act, type);
                     }
@@ -286,7 +286,7 @@ public class Monitoring_alarm extends AppCompatActivity {private MoniAlarmAdapte
                                 getData(name, state, condi, onoff,act, type);
                                 idx = 0;
 
-                                btn_status.setText("발생");
+                                btn_status.setText("알람 발생");
                                 break;
 
                             case R.id.nor:

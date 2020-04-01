@@ -9,7 +9,7 @@
         android:title="전체"/>
     <item
         android:id="@+id/occ"
-        android:title="발생" />
+        android:title="알람 발생" />
     <item
         android:id="@+id/nor"
         android:title="안정"/>

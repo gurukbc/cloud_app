@@ -215,19 +215,6 @@ public class Monitoring extends AppCompatActivity {
             }
         });
 
-        // 알람 이동
-        Button al = (Button)findViewById(R.id.btn_moni_main_alarm);
-        al.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(
-                        getApplicationContext(), // 현재 화면의 제어권자
-                        Monitoring_alarm.class); // 다음 넘어갈 클래스 지정
-                intent.putExtra("btn_value", "전체");
-                startActivity(intent); // 다음 화면으로 넘어간다
-            }
-        });
-
         // 메시지 이동
         msg_btn();
 
@@ -269,6 +256,19 @@ public class Monitoring extends AppCompatActivity {
     }
 
     public void alarm_btn() {
+        // 알람 이동
+        final Button al = (Button)findViewById(R.id.btn_moni_main_alarm);
+        al.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(
+                        getApplicationContext(), // 현재 화면의 제어권자
+                        Monitoring_alarm.class); // 다음 넘어갈 클래스 지정
+                intent.putExtra("btn_value", "전체");
+                startActivity(intent); // 다음 화면으로 넘어간다
+            }
+        });
+
         final Button occ = (Button)findViewById(R.id.btn_moni_alarm_occ);
         occ.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -276,7 +276,7 @@ public class Monitoring extends AppCompatActivity {
                 Intent intent = new Intent(
                         getApplicationContext(), // 현재 화면의 제어권자
                         Monitoring_alarm.class); // 다음 넘어갈 클래스 지정
-                intent.putExtra("btn_value", "발생");
+                intent.putExtra("btn_value", "알람 발생");
                 startActivity(intent); // 다음 화면으로 넘어간다
             }
         });

@@ -88,6 +88,7 @@ public class TopicAdapter extends RecyclerView.Adapter {
             name.setText(data.getName());
             protocol.setText(data.getProtocol());
             pub.setText(data.getPub());
+            pub.setSelected(true);
             receiver.setText(data.getReceiver());
 
             changeVisibility(selectedItems.get(position));

@@ -144,6 +144,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="구독 URN 받아오기"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit= "marquee_forever"
             app:layout_constraintBottom_toBottomOf="@+id/txt_topic_pub_back"
             app:layout_constraintStart_toEndOf="@+id/txt_topic_pub_back"
             app:layout_constraintTop_toTopOf="@+id/txt_topic_pub_back" />
